@@ -31,14 +31,6 @@ class StudentSheetReport extends Portabilis_Report_ReportCore
 
     public function getJsonData()
     {
-        try {
-            return [
-                'main' => (new QueryStudentSheet2)->get($this->args),
-                'header' => Portabilis_Utils_Database::fetchPreparedQuery($this->getSqlHeaderReport())
-            ];
-        } catch (\Throwable $th) {
-            dd($th);
-        }
         if ($this->args['modelo'] == 2) {
             return [
                 'main' => (new QueryStudentSheet2)->get($this->args),
