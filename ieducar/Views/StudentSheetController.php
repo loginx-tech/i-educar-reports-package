@@ -37,7 +37,6 @@ class StudentSheetController extends Portabilis_Controller_ReportCoreController
             'label' => 'Modelo',
             'resources' => [
                 1 => 'Modelo 1',
-                2 => 'Modelo 2'
             ], 'value' => 1
         ]);
     }
