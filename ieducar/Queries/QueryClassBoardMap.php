@@ -126,7 +126,7 @@ class QueryClassBoardMap extends QueryBridge
                 INNER JOIN pmieducar.matricula ON (matricula.cod_matricula = matricula_turma.ref_cod_matricula
                                                        AND matricula.ref_cod_curso = curso.cod_curso
                                                        AND matricula.ref_ref_cod_serie = serie.cod_serie)
-                INNER JOIN relatorio.view_situacao ON (view_situacao.cod_matricula = matricula.cod_matricula
+                INNER JOIN relatorio.view_situacao_relatorios view_situacao ON (view_situacao.cod_matricula = matricula.cod_matricula
                                                        AND view_situacao.cod_turma = matricula_turma.ref_cod_turma
                                                        AND view_situacao.sequencial = matricula_turma.sequencial
                                                        AND view_situacao.cod_situacao = $P{situacao})

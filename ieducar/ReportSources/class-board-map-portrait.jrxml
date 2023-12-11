@@ -103,6 +103,7 @@
     <field name="qtde_etapa" class="java.lang.Integer"/>
     <field name="nome_etapa" class="java.lang.String"/>
     <field name="periodo" class="java.lang.String"/>
+    <field name="sequencial" class="java.lang.String"/>
     <field name="sequencial_fechamento" class="java.lang.Integer"/>
     <pageHeader>
         <band height="125">
@@ -269,7 +270,7 @@
                     </crosstabHeaderCell>
                     <rowGroup name="linha" width="14">
                         <bucket class="java.lang.Integer">
-                            <bucketExpression><![CDATA[$F{matricula}]]></bucketExpression>
+                            <bucketExpression><![CDATA[$F{matricula} + $F{sequencial}]]></bucketExpression>
                         </bucket>
                         <crosstabRowHeader>
                             <cellContents mode="Opaque" style="linha-zebrado">
@@ -636,7 +637,7 @@
                         </crosstabHeaderCell>
                         <rowGroup name="linha" width="14">
                             <bucket class="java.lang.Integer">
-                                <bucketExpression><![CDATA[$F{matricula}]]></bucketExpression>
+                                <bucketExpression><![CDATA[$F{matricula} + $F{sequencial}]]></bucketExpression>
                             </bucket>
                             <crosstabRowHeader>
                                 <cellContents mode="Opaque" style="linha-zebrado">
@@ -1004,7 +1005,7 @@
                         </crosstabHeaderCell>
                         <rowGroup name="linha" width="14">
                             <bucket class="java.lang.Integer">
-                                <bucketExpression><![CDATA[$F{matricula}]]></bucketExpression>
+                                <bucketExpression><![CDATA[$F{matricula} + $F{sequencial}]]></bucketExpression>
                             </bucket>
                             <crosstabRowHeader>
                                 <cellContents mode="Opaque" style="linha-zebrado">
@@ -1375,7 +1376,7 @@
                             </crosstabHeaderCell>
                             <rowGroup name="linha" width="14">
                                 <bucket class="java.lang.Integer">
-                                    <bucketExpression><![CDATA[$F{matricula}]]></bucketExpression>
+                                    <bucketExpression><![CDATA[$F{matricula} + $F{sequencial}]]></bucketExpression>
                                 </bucket>
                                 <crosstabRowHeader>
                                     <cellContents mode="Opaque" style="linha-zebrado">
@@ -1742,7 +1743,7 @@
                 </crosstabHeaderCell>
                 <rowGroup name="linha" width="14">
                     <bucket class="java.lang.Integer">
-                        <bucketExpression><![CDATA[$F{matricula}]]></bucketExpression>
+                        <bucketExpression><![CDATA[$F{matricula} + $F{sequencial}]]></bucketExpression>
                     </bucket>
                     <crosstabRowHeader>
                         <cellContents mode="Opaque" style="linha-zebrado">
@@ -2232,7 +2233,7 @@
                 </crosstabHeaderCell>
                 <rowGroup name="linha" width="28">
                     <bucket class="java.lang.Integer">
-                        <bucketExpression><![CDATA[$F{matricula}]]></bucketExpression>
+                        <bucketExpression><![CDATA[$F{matricula} + $F{sequencial}]]></bucketExpression>
                     </bucket>
                     <crosstabRowHeader>
                         <cellContents mode="Opaque" style="linha-zebrado">
@@ -2638,7 +2639,7 @@
                 </crosstabHeaderCell>
                 <rowGroup name="linha" width="28">
                     <bucket class="java.lang.Integer">
-                        <bucketExpression><![CDATA[$F{matricula}]]></bucketExpression>
+                        <bucketExpression><![CDATA[$F{matricula} + $F{sequencial}]]></bucketExpression>
                     </bucket>
                     <crosstabRowHeader>
                         <cellContents mode="Opaque" style="linha-zebrado">
