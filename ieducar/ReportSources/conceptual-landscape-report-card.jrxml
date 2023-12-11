@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="conceptual-landscape-report-card" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a004eae-d897-4de6-8a61-b0ebdf3de862">
 	<property name="ireport.zoom" value="1.8627639691774809"/>
-	<property name="ireport.x" value="926"/>
+	<property name="ireport.x" value="610"/>
 	<property name="ireport.y" value="280"/>
 	<style name="listra" isDefault="true" mode="Opaque" backcolor="#FFFFFF">
 		<box>
@@ -108,7 +108,7 @@
 	<field name="total_faltas_et2" class="java.lang.Integer"/>
 	<field name="total_faltas_et3" class="java.lang.Integer"/>
 	<field name="total_faltas_et4" class="java.lang.Integer"/>
-	<field name="total_faltas_geral" class="java.lang.Integer"/>
+	<field name="total_faltas" class="java.lang.Integer"/>
 	<field name="media_frequencia" class="java.math.BigDecimal"/>
 	<field name="frequencia" class="java.math.BigDecimal"/>
 	<field name="legenda_notas" class="java.lang.String"/>
@@ -365,7 +365,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="7" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_faltas_geral}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_faltas}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement uuid="d82966e3-4af6-4651-9966-59d560fd9859" mode="Transparent" x="736" y="0" width="32" height="15" printWhenGroupChanges="secao"/>
@@ -578,7 +578,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="7" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_faltas_geral}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_faltas}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement uuid="d82966e3-4af6-4651-9966-59d560fd9859" mode="Transparent" x="736" y="0" width="32" height="15" printWhenGroupChanges="secao"/>
@@ -756,7 +756,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="7" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_faltas_geral}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_faltas}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement uuid="d82966e3-4af6-4651-9966-59d560fd9859" mode="Transparent" x="736" y="0" width="32" height="15" printWhenGroupChanges="secao"/>
@@ -899,7 +899,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="7" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_faltas_geral}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_faltas}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement uuid="d82966e3-4af6-4651-9966-59d560fd9859" mode="Transparent" x="736" y="0" width="32" height="15" printWhenGroupChanges="secao"/>
