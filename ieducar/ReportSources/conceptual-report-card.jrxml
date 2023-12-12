@@ -119,7 +119,7 @@
 	<field name="total_faltas_et2" class="java.lang.Integer"/>
 	<field name="total_faltas_et3" class="java.lang.Integer"/>
 	<field name="total_faltas_et4" class="java.lang.Integer"/>
-	<field name="total_faltas_geral" class="java.lang.Integer"/>
+	<field name="total_faltas" class="java.lang.Integer"/>
 	<field name="media_frequencia" class="java.math.BigDecimal"/>
 	<field name="frequencia" class="java.math.BigDecimal"/>
 	<field name="legenda_notas" class="java.lang.String"/>
@@ -528,7 +528,7 @@
 					<textElement textAlignment="Center">
 						<font fontName="DejaVu Sans" size="7"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_faltas_geral}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_faltas}]]></textFieldExpression>
 				</textField>
 				<textField pattern="" isBlankWhenNull="true">
 					<reportElement uuid="348e284c-0d47-437b-9230-429b044338b2" mode="Transparent" x="521" y="12" width="32" height="11"/>
@@ -691,7 +691,7 @@
 					<textElement textAlignment="Center">
 						<font fontName="DejaVu Sans" size="7"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_faltas_geral}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_faltas}]]></textFieldExpression>
 				</textField>
 				<textField pattern="" isBlankWhenNull="true">
 					<reportElement uuid="348e284c-0d47-437b-9230-429b044338b2" mode="Transparent" x="521" y="12" width="32" height="11"/>
@@ -819,7 +819,7 @@
 					<textElement textAlignment="Center">
 						<font fontName="DejaVu Sans" size="7"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_faltas_geral}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_faltas}]]></textFieldExpression>
 				</textField>
 				<textField pattern="" isBlankWhenNull="true">
 					<reportElement uuid="348e284c-0d47-437b-9230-429b044338b2" mode="Transparent" x="521" y="12" width="32" height="11"/>
@@ -890,7 +890,7 @@
 					<textElement textAlignment="Center">
 						<font fontName="DejaVu Sans" size="7"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{total_faltas_geral}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_faltas}]]></textFieldExpression>
 				</textField>
 				<textField pattern="" isBlankWhenNull="true">
 					<reportElement uuid="348e284c-0d47-437b-9230-429b044338b2" mode="Transparent" x="521" y="12" width="32" height="11"/>
