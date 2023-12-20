@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portabilis_ata_resultado_final" language="groovy" pageWidth="823" pageHeight="612" orientation="Landscape" columnWidth="783" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6aa6f40c-104d-4995-8361-09cc67a938a0">
 	<property name="ireport.zoom" value="1.1000000000000068"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="57"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
 	<style name="Crosstab Data Text"/>
@@ -231,9 +231,9 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="185">
+			<band height="146">
 				<crosstab columnBreakOffset="0" ignoreWidth="false">
-					<reportElement uuid="0f045964-8ec7-4fdf-8410-2e62d650f0ec" x="0" y="0" width="783" height="185">
+					<reportElement uuid="0f045964-8ec7-4fdf-8410-2e62d650f0ec" x="0" y="0" width="783" height="146">
 						<printWhenExpression><![CDATA[$F{usa_media_geral}]]></printWhenExpression>
 					</reportElement>
 					<crosstabDataset isDataPreSorted="true"/>
@@ -536,7 +536,7 @@
 					</crosstabCell>
 				</crosstab>
 				<crosstab columnBreakOffset="0" ignoreWidth="false">
-					<reportElement uuid="0f045964-8ec7-4fdf-8410-2e62d650f0ec" x="0" y="0" width="783" height="185">
+					<reportElement uuid="0f045964-8ec7-4fdf-8410-2e62d650f0ec" x="0" y="0" width="783" height="146">
 						<printWhenExpression><![CDATA[!$F{usa_media_geral}]]></printWhenExpression>
 					</reportElement>
 					<crosstabDataset isDataPreSorted="true"/>
@@ -892,9 +892,9 @@
 		</band>
 	</pageFooter>
 	<lastPageFooter>
-		<band height="320" splitType="Stretch">
+		<band height="188" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="64c8c95f-a624-4f17-83c9-77976f109951" stretchType="RelativeToBandHeight" x="0" y="247" width="233" height="20" isPrintWhenDetailOverflows="true"/>
+				<reportElement uuid="64c8c95f-a624-4f17-83c9-77976f109951" stretchType="RelativeToBandHeight" x="0" y="126" width="233" height="20" isPrintWhenDetailOverflows="true"/>
 				<box>
 					<topPen lineWidth="0.25"/>
 				</box>
@@ -904,7 +904,7 @@
 				<text><![CDATA[Assinatura do(a) funcionário(a) - nº reg. ou aut.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8c2f723b-dfe1-41e6-be85-0f59e664b60f" stretchType="RelativeToBandHeight" x="545" y="247" width="233" height="20" isPrintWhenDetailOverflows="true"/>
+				<reportElement uuid="8c2f723b-dfe1-41e6-be85-0f59e664b60f" stretchType="RelativeToBandHeight" x="545" y="126" width="233" height="20" isPrintWhenDetailOverflows="true"/>
 				<box>
 					<topPen lineWidth="0.25"/>
 				</box>
@@ -914,21 +914,21 @@
 				<text><![CDATA[Assinatura do(a) diretor(a) - nº reg. ou aut.]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement uuid="4b84c028-0fba-4d3c-bc46-c7af40e378f3" stretchType="RelativeToBandHeight" x="765" y="298" width="13" height="11" isPrintWhenDetailOverflows="true"/>
+				<reportElement uuid="4b84c028-0fba-4d3c-bc46-c7af40e378f3" stretchType="RelativeToBandHeight" x="765" y="177" width="13" height="11" isPrintWhenDetailOverflows="true"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="efb657d7-cf1a-4682-b1b5-3f003bbf0b99" stretchType="RelativeToBandHeight" x="673" y="298" width="92" height="11" isPrintWhenDetailOverflows="true"/>
+				<reportElement uuid="efb657d7-cf1a-4682-b1b5-3f003bbf0b99" stretchType="RelativeToBandHeight" x="673" y="177" width="92" height="11" isPrintWhenDetailOverflows="true"/>
 				<textElement textAlignment="Right" markup="html">
 					<font fontName="DejaVu Sans" size="7" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Página: " + $V{PAGE_NUMBER} +" de "]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="950a7032-c508-48ea-bd9c-9adb281d700e" stretchType="RelativeToBandHeight" x="0" y="298" width="778" height="11" isPrintWhenDetailOverflows="true"/>
+				<reportElement uuid="950a7032-c508-48ea-bd9c-9adb281d700e" stretchType="RelativeToBandHeight" x="0" y="177" width="778" height="11" isPrintWhenDetailOverflows="true"/>
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
