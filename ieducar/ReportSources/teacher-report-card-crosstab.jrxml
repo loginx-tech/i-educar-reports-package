@@ -22,10 +22,10 @@
 	<parameter name="linha" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
 	</parameter>
-    <parameter name="order_sequential" class="java.lang.Integer"/>
-    <parameter name="serie" class="java.lang.Integer">
-        <defaultValueExpression><![CDATA[0]]></defaultValueExpression>
-    </parameter>
+	<parameter name="order_sequential" class="java.lang.Integer"/>
+	<parameter name="serie" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
 	<parameter name="situacao" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
 	</parameter>
@@ -60,7 +60,7 @@
 		<band height="99" splitType="Stretch">
 			<elementGroup>
 				<crosstab ignoreWidth="true">
-					<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="685" height="99" uuid="e8217722-a99f-4eed-a4ba-df1cee1aa952">
+					<reportElement uuid="e8217722-a99f-4eed-a4ba-df1cee1aa952" stretchType="RelativeToTallestObject" x="0" y="0" width="685" height="99">
 						<printWhenExpression><![CDATA[$V{qtde_etapa} == 1]]></printWhenExpression>
 					</reportElement>
 					<crosstabParameter name="data_manual" class="java.lang.Boolean">
@@ -76,7 +76,7 @@
 								<rightPen lineWidth="0.25"/>
 							</box>
 							<staticText>
-								<reportElement style="Crosstab Data Text" x="0" y="0" width="380" height="28" uuid="ed125289-86a7-4708-b30b-657efbb76ba1"/>
+								<reportElement uuid="ed125289-86a7-4708-b30b-657efbb76ba1" style="Crosstab Data Text" x="0" y="0" width="380" height="28"/>
 								<box>
 									<topPen lineWidth="0.0"/>
 									<leftPen lineWidth="0.0"/>
@@ -112,21 +112,21 @@
 									<rightPen lineWidth="0.0"/>
 								</box>
 								<textField>
-									<reportElement x="83" y="17" width="79" height="11" uuid="797489cd-b843-4a55-8870-b97338651070"/>
+									<reportElement uuid="797489cd-b843-4a55-8870-b97338651070" x="83" y="17" width="79" height="11"/>
 									<textElement>
 										<font fontName="DejaVu Sans" size="8"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$V{qtde_alunos}]]></textFieldExpression>
 								</textField>
 								<staticText>
-									<reportElement x="4" y="17" width="79" height="11" uuid="ad6aeace-de5e-4d20-8d19-2b7c5b8d1f81"/>
+									<reportElement uuid="ad6aeace-de5e-4d20-8d19-2b7c5b8d1f81" x="4" y="17" width="79" height="11"/>
 									<textElement>
 										<font fontName="DejaVu Sans" size="8" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Total de alunos:]]></text>
 								</staticText>
 								<staticText>
-									<reportElement x="4" y="3" width="142" height="11" uuid="ad6aeace-de5e-4d20-8d19-2b7c5b8d1f81">
+									<reportElement uuid="ad6aeace-de5e-4d20-8d19-2b7c5b8d1f81" x="4" y="3" width="142" height="11">
 										<printWhenExpression><![CDATA[$V{dep} == true]]></printWhenExpression>
 									</reportElement>
 									<textElement>
@@ -150,7 +150,7 @@
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textField isBlankWhenNull="true">
-									<reportElement style="Crosstab Data Text" stretchType="RelativeToTallestObject" x="0" y="0" width="380" height="14" uuid="563e34a5-b51b-4cb6-8759-cfeb7d0c01e2"/>
+									<reportElement uuid="563e34a5-b51b-4cb6-8759-cfeb7d0c01e2" style="Crosstab Data Text" stretchType="RelativeToTallestObject" x="0" y="0" width="380" height="14"/>
 									<box>
 										<topPen lineWidth="0.0"/>
 										<leftPen lineWidth="0.0"/>
@@ -188,7 +188,7 @@
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textField>
-									<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="14" uuid="38e4cdf0-8028-41b9-9934-c695a7692e5a"/>
+									<reportElement uuid="38e4cdf0-8028-41b9-9934-c695a7692e5a" style="Crosstab Data Text" x="0" y="0" width="70" height="14"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font fontName="DejaVu Sans" size="8" isBold="true"/>
 										<paragraph leftIndent="2"/>
@@ -196,7 +196,7 @@
 									<textFieldExpression><![CDATA[$V{sequencial} + "º " +$V{nome_modulo}]]></textFieldExpression>
 								</textField>
 								<staticText>
-									<reportElement style="Crosstab Data Text" x="0" y="14" width="52" height="14" uuid="3bce75cd-c9aa-456c-8358-c5551b333289"/>
+									<reportElement uuid="3bce75cd-c9aa-456c-8358-c5551b333289" style="Crosstab Data Text" x="0" y="14" width="52" height="14"/>
 									<box>
 										<topPen lineWidth="0.25"/>
 									</box>
@@ -206,7 +206,7 @@
 									<text><![CDATA[Nota]]></text>
 								</staticText>
 								<staticText>
-									<reportElement style="Crosstab Data Text" x="52" y="14" width="18" height="14" uuid="3d795476-1644-4083-ac4e-e61849dfd747"/>
+									<reportElement uuid="3d795476-1644-4083-ac4e-e61849dfd747" style="Crosstab Data Text" x="52" y="14" width="18" height="14"/>
 									<box>
 										<topPen lineWidth="0.25"/>
 									</box>
@@ -368,7 +368,7 @@
 								<textElement verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="8" isBold="false"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$V{nota_arredondada_etapaMeasure} == null ? "" : ($V{media} == null ? "" : new DecimalFormat("##0.0").format(Double.parseDouble($V{media})))]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$V{nota_arredondada_etapaMeasure}.matches("[-+]?\\d+(\\.\\d+)?") ? ($V{media} == null ? "" : new DecimalFormat("##0.0").format(Double.parseDouble($V{media}))) : $V{media}]]></textFieldExpression>
 							</textField>
 							<textField isBlankWhenNull="true">
 								<reportElement uuid="136f4f4f-ca4b-467d-9384-043f183414d9" style="Crosstab Data Text" x="0" y="0" width="39" height="14"/>
@@ -743,7 +743,7 @@
 								<textElement verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="8" isBold="false"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$V{nota_arredondada_etapaMeasure}.matches("[-+]?\\d+(\\.\\d+)?") ? ($V{media} == null ? "" : new DecimalFormat("##0.0").format(Double.parseDouble($V{media}))) : $V{nota_arredondada_etapaMeasure}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$V{nota_arredondada_etapaMeasure}.matches("[-+]?\\d+(\\.\\d+)?") ? ($V{media} == null ? "" : new DecimalFormat("##0.0").format(Double.parseDouble($V{media}))) : $V{media}]]></textFieldExpression>
 							</textField>
 							<textField isBlankWhenNull="true">
 								<reportElement uuid="136f4f4f-ca4b-467d-9384-043f183414d9" style="Crosstab Data Text" x="0" y="0" width="39" height="14"/>
@@ -1118,7 +1118,7 @@
 								<textElement verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="8" isBold="false"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$V{nota_arredondada_etapaMeasure}.matches("[-+]?\\d+(\\.\\d+)?") ? ($V{media} == null ? "" : new DecimalFormat("##0.0").format(Double.parseDouble($V{media}))) : $V{nota_arredondada_etapaMeasure}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$V{nota_arredondada_etapaMeasure}.matches("[-+]?\\d+(\\.\\d+)?") ? ($V{media} == null ? "" : new DecimalFormat("##0.0").format(Double.parseDouble($V{media}))) : $V{media}]]></textFieldExpression>
 							</textField>
 							<textField isBlankWhenNull="true">
 								<reportElement uuid="136f4f4f-ca4b-467d-9384-043f183414d9" style="Crosstab Data Text" x="0" y="0" width="39" height="14"/>
@@ -1493,7 +1493,7 @@
 								<textElement verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="8" isBold="false"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$V{nota_arredondada_etapaMeasure}.matches("[-+]?\\d+(\\.\\d+)?") ? ($V{media} == null ? "" : new DecimalFormat("##0.0").format(Double.parseDouble($V{media}))) : $V{nota_arredondada_etapaMeasure}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$V{nota_arredondada_etapaMeasure}.matches("[-+]?\\d+(\\.\\d+)?") ? ($V{media} == null ? "" : new DecimalFormat("##0.0").format(Double.parseDouble($V{media}))) : $V{media}]]></textFieldExpression>
 							</textField>
 							<textField isBlankWhenNull="true">
 								<reportElement uuid="136f4f4f-ca4b-467d-9384-043f183414d9" style="Crosstab Data Text" x="0" y="0" width="39" height="14"/>
