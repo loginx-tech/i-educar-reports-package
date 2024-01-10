@@ -15,6 +15,8 @@ class SchoolHistoryNineYearsModifier extends BaseModifier
             return $aluno['matricula_transferido'];
         },$main));
 
+        $matriculasTransferido = array_filter($matriculasTransferido);
+
         $this->args['matriculas_transferido'] = implode(',', $matriculasTransferido) ?: 0;
 
         $data['registration_transfer'] = (new QuerySchoolHistoryNineYearsTransfer())->get($this->args);

@@ -81,7 +81,7 @@
 	<field name="cpf" class="java.lang.String"/>
 	<field name="pis" class="java.math.BigDecimal"/>
 	<field name="rg" class="java.lang.String"/>
-	<field name="data_exp_rg" class="java.sql.Date"/>
+	<field name="data_exp_rg" class="java.lang.String"/>
 	<field name="sigla_uf_exp_rg" class="java.lang.String"/>
 	<field name="orgao_emissor_rg" class="java.lang.String"/>
 	<field name="num_tit_eleitor" class="java.math.BigDecimal"/>
