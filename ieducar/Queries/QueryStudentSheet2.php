@@ -86,6 +86,18 @@ class QueryStudentSheet2 extends QueryBridge
                     AND tipo < 4
                     LIMIT 3
                 ) AS telefones_responsavel,
+                (
+                    SELECT MAX(caminho)
+                    FROM cadastro.fisica_foto
+                    WHERE idpes = aluno.ref_idpes
+                    AND SUBSTR(caminho, 1,32) = 'https://app.i-educar.com/storage'
+                ) AS foto,
+                (
+                    SELECT 1
+                    FROM cadastro.fisica_foto
+                    WHERE idpes = aluno.ref_idpes
+                    AND SUBSTR(caminho, 1,32) = 'https://app.i-educar.com/storage'
+                ) AS existe_foto,
                 addresses.address AS endereco,
                 addresses.neighborhood AS bairro,
                 addresses.complement AS complemento,

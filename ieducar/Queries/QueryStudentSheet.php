@@ -396,15 +396,15 @@ class QueryStudentSheet extends QueryBridge
                       FROM cadastro.endereco_externo
                       WHERE endereco_externo.idpes = fisica.idpes_responsavel))) AS bairro_responsavel,
 
-  (SELECT caminho
+  (SELECT MAX(caminho)
    FROM cadastro.fisica_foto
    WHERE idpes = aluno.ref_idpes
-       AND SUBSTR(caminho, 1,27) = 'http://apps-ieducar-images.') AS foto,
+       AND SUBSTR(caminho, 1,32) = 'https://app.i-educar.com/storage') AS foto,
 
   (SELECT 1
    FROM cadastro.fisica_foto
    WHERE idpes = aluno.ref_idpes
-       AND SUBSTR(caminho, 1,27) = 'http://apps-ieducar-images.') AS existe_foto,
+       AND SUBSTR(caminho, 1,32) = 'https://app.i-educar.com/storage') AS existe_foto,
 
   (SELECT fisica.sus
    FROM cadastro.fisica
