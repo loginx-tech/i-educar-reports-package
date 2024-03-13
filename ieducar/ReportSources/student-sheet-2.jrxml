@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portabilis_ficha_aluno_modelo2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="80c96018-59aa-4572-b3d5-66ec29e78417">
 	<property name="ireport.zoom" value="1.4641000000000162"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="644"/>
+	<property name="ireport.y" value="164"/>
 	<parameter name="instituicao" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
 	</parameter>
@@ -77,6 +77,8 @@
 	<field name="periodo" class="java.lang.String"/>
 	<field name="telefones_responsavel" class="java.lang.String"/>
 	<field name="cep" class="java.lang.String"/>
+	<field name="existe_foto" class="java.lang.Integer"/>
+	<field name="foto" class="java.lang.String"/>
 	<group name="aluno" isStartNewPage="true">
 		<groupExpression><![CDATA[$F{cod_aluno}]]></groupExpression>
 		<groupHeader>
@@ -122,7 +124,9 @@
 					</graphicElement>
 				</rectangle>
 				<rectangle>
-					<reportElement uuid="cf30196d-7da5-4de3-a72c-47d98d7b73d3" mode="Opaque" x="473" y="32" width="72" height="90"/>
+					<reportElement uuid="cf30196d-7da5-4de3-a72c-47d98d7b73d3" mode="Opaque" x="473" y="32" width="72" height="90">
+						<printWhenExpression><![CDATA[$F{existe_foto} != 1]]></printWhenExpression>
+					</reportElement>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
@@ -135,7 +139,9 @@
 					<text><![CDATA[IDENTIFICAÇÃO DO ALUNO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement uuid="f07ab04c-56ff-4b8b-90ba-950085dc1cca" x="486" y="66" width="47" height="12"/>
+					<reportElement uuid="f07ab04c-56ff-4b8b-90ba-950085dc1cca" x="486" y="66" width="47" height="12">
+						<printWhenExpression><![CDATA[$F{existe_foto} != 1]]></printWhenExpression>
+					</reportElement>
 					<textElement>
 						<font fontName="DejaVu Sans" size="7"/>
 					</textElement>
@@ -455,6 +461,12 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$F{telefones_aluno}]]></textFieldExpression>
 				</textField>
+				<image>
+					<reportElement uuid="10d94ccc-f34f-4b8b-b3d4-3749c115755c" x="476" y="35" width="66" height="84">
+						<printWhenExpression><![CDATA[$F{existe_foto} == 1]]></printWhenExpression>
+					</reportElement>
+					<imageExpression><![CDATA[$F{foto}]]></imageExpression>
+				</image>
 			</band>
 			<band height="80">
 				<rectangle radius="0">
@@ -532,56 +544,56 @@
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</line>
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="4875b033-3af8-4091-8a77-fa046df6af54" x="63" y="28" width="413" height="12"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="22fba915-3107-4fb3-9949-ee10c53a4f04" x="507" y="28" width="43" height="12"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="8a68da27-b7af-4440-b182-542307a14e2f" x="50" y="46" width="162" height="12"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="c0b34ad5-1309-4caa-810c-a6fc4c07b9ba" x="264" y="46" width="105" height="12"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="c06023df-e2fd-4154-9881-98a622c6cdcf" x="423" y="46" width="34" height="12"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="b8903e16-f257-4525-82de-52cbba7aa56a" x="485" y="46" width="66" height="12"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="d05f1c8a-125d-442f-a555-8a79aa3216d1" x="434" y="64" width="109" height="12"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{telefones_responsavel}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="58b9c631-27d6-4cde-9afd-1bbc94430df9" x="90" y="64" width="279" height="12"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
@@ -872,7 +884,7 @@
 					<pen lineWidth="0.25"/>
 				</graphicElement>
 			</line>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="ac9f5b35-0c31-440b-8b6c-40399a7d3e8c" x="8" y="0" width="40" height="15"/>
 				<box>
 					<topPen lineWidth="0.5"/>
@@ -885,7 +897,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="d01f6935-5a56-4eb5-bd05-67f55947fd6e" x="48" y="0" width="50" height="15"/>
 				<box>
 					<topPen lineWidth="0.5"/>
@@ -898,7 +910,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nm_serie}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="576d5121-4831-4aa0-9eed-d65a27139e1d" x="98" y="0" width="66" height="15"/>
 				<box>
 					<topPen lineWidth="0.5"/>
@@ -911,7 +923,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nm_turma}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="cd47b5c8-f062-42bd-af5c-3b397e51a6f9" x="229" y="0" width="68" height="15"/>
 				<box>
 					<topPen lineWidth="0.5"/>
@@ -924,7 +936,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{situacao}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="576d5121-4831-4aa0-9eed-d65a27139e1d" x="164" y="0" width="65" height="15"/>
 				<box>
 					<topPen lineWidth="0.5"/>
