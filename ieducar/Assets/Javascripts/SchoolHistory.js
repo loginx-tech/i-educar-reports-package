@@ -9,6 +9,9 @@ $j("#ano_fim").closest('tr').hide();
 $j("#cursoaluno").closest('tr').hide();
 $j("#apenas_ultimo_registro").closest('tr').hide();
 
+$j("#ano_transferencia").closest('tr').hide();
+$j("#cursos_transferencia").closest('tr').hide();
+
 $j("#imprime_diretor_secretario").on('click', function(){
 	if($j('#imprime_diretor_secretario').prop('checked')){
 		$j("#nm_secretario").closest('tr').show();
@@ -67,6 +70,14 @@ $j("#modelo").on('click', function(){
         $j("#ano_fim").closest('tr').hide();
         $j("#apenas_ultimo_registro").closest('tr').hide();
         $j("#cursoaluno").closest('tr').hide();
+    }
+
+    if (template == 5) {
+      $j("#ano_transferencia").closest('tr').show();
+      $j("#cursos_transferencia").closest('tr').show();
+    } else {
+        $j("#ano_transferencia").closest('tr').hide();
+        $j("#cursos_transferencia").closest('tr').hide();
     }
 });
 

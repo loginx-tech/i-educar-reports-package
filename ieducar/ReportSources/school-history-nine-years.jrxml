@@ -43,6 +43,8 @@
 	<parameter name="diretor" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
+    <parameter name="ano_transferencia" class="java.lang.Integer"/>
+    <parameter name="cursos_transferencia" class="java.lang.String"/>
 	<parameter name="ano" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>

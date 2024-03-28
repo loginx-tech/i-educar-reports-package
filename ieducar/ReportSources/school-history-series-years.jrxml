@@ -47,6 +47,8 @@
 	<parameter name="serie" class="java.lang.Integer"/>
 	<parameter name="turma" class="java.lang.Integer"/>
 	<parameter name="ano" class="java.lang.Integer"/>
+	<parameter name="ano_transferencia" class="java.lang.Integer"/>
+    <parameter name="cursos_transferencia" class="java.lang.String"/>
 	<parameter name="ano_ini" class="java.lang.Integer"/>
 	<parameter name="ano_fim" class="java.lang.Integer"/>
 	<parameter name="sequencial" class="java.lang.Integer"/>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\LegacyCourse;
+
 class SchoolHistoryController extends Portabilis_Controller_ReportCoreController
 {
     /**
@@ -62,6 +64,27 @@ class SchoolHistoryController extends Portabilis_Controller_ReportCoreController
         ];
         $options = ['label' => 'Modelo', 'resources' => $resources, 'value' => 1];
         $this->inputsHelper()->select('modelo', $options);
+        $this->inputsHelper()->integer('ano_transferencia', [
+            'placeholder' => '',
+            'label_hint' => 'Ano da matrícula de transferência para boletim anexado ao histórico. Caso não preenchido será pego o último ano de histórico gerado.',
+            'required' => false,
+            'label' => 'Ano da transferência',
+            'max_length' => 4,
+            'size' => 4
+        ]);
+
+        $cursos = LegacyCourse::all()->pluck('nm_curso','cod_curso')->toArray();
+        $helperOptions = ['objectName' => 'cursos_transferencia'];
+        $options = [
+            'label' => 'Cursos',
+            'label_hint' => 'Cursos considerados para buscar boletim de transferência anexado ao histórico.',
+            'size' => 50,
+            'required' => false,
+            'options' => [
+                'all_values' => $cursos,
+            ],
+        ];
+        $this->inputsHelper()->multipleSearchCustom(attrName: '', inputOptions: $options, helperOptions: $helperOptions);
 
         $this->inputsHelper()->integer('ano_ini', ['placeholder' => '', 'required' => false, 'label' => 'Ano início', 'max_length' => 4, 'size' => 4]);
         $this->inputsHelper()->integer('ano_fim', ['placeholder' => '','required' => false, 'label' => 'Ano final', 'max_length' => 4, 'size' => 4]);
@@ -95,6 +118,9 @@ class SchoolHistoryController extends Portabilis_Controller_ReportCoreController
         $this->report->addArg('turma', (int) $this->getRequest()->ref_cod_turma);
         $this->report->addArg('ano', (int) $this->getRequest()->ano);
         $this->report->addArg('emitir_carga_horaria_frequentada', (bool) $this->getRequest()->emitir_carga_horaria_frequentada);
+        $this->report->addArg('ano_transferencia', ($this->getRequest()->ano_transferencia == '' ? 0 : (int)$this->getRequest()->ano_transferencia));
+        $curstoTransferencia = implode(',', array_filter($this->getRequest()->cursos_transferencia ?? []));
+        $this->report->addArg('cursos_transferencia', trim($curstoTransferencia) == '' ? 0 : $curstoTransferencia);
         $this->report->addArg('ano_ini', ($this->getRequest()->ano_ini == '' ? 0 : (int)$this->getRequest()->ano_ini));
         $this->report->addArg('ano_fim', ($this->getRequest()->ano_fim == '' ? 0 : (int)$this->getRequest()->ano_fim));
         $cursoaluno = implode(',', array_filter($this->getRequest()->cursoaluno ?? []));
