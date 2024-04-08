@@ -130,6 +130,8 @@
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
 	<parameter name="logo" class="java.lang.String"/>
+    <parameter name="ano_transferencia" class="java.lang.Integer"/>
+    <parameter name="cursos_transferencia" class="java.lang.String"/>
 	<parameter name="ano_ini" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>

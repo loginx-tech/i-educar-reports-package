@@ -100,22 +100,25 @@ class QuerySchoolHistoryNineYears extends QueryBridge
                         FROM pmieducar.matricula m
                         JOIN pmieducar.matricula_turma mt ON mt.ref_cod_matricula = m.cod_matricula
                         JOIN pmieducar.turma t ON t.cod_turma = mt.ref_cod_turma
-                        WHERE m.ano = (
+                        WHERE m.ano = CASE WHEN $P{ano_transferencia} > 0 THEN $P{ano_transferencia} ELSE
                             (
-                                SELECT max(he.ano) AS max
-                                FROM pmieducar.historico_escolar he
-                                WHERE he.ref_cod_aluno = aluno.cod_aluno
-                                    AND he.ativo = 1
-                                    AND he.extra_curricular = 0
-                                    AND COALESCE(he.dependencia, false) = false
-                                    AND isnumeric("substring"(he.nm_serie::text, 1, 1))
+                                (
+                                    SELECT max(he.ano) AS max
+                                    FROM pmieducar.historico_escolar he
+                                    WHERE he.ref_cod_aluno = aluno.cod_aluno
+                                        AND he.ativo = 1
+                                        AND he.extra_curricular = 0
+                                        AND COALESCE(he.dependencia, false) = false
+                                        AND isnumeric("substring"(he.nm_serie::text, 1, 1))
+                                )
                             )
-                        )
+                        END
                         AND m.ref_cod_aluno = aluno.cod_aluno
                         AND m.ativo = 1
                         AND m.aprovado = 4
                         AND mt.transferido = true
                         AND coalesce(t.tipo_atendimento, 0) != 4 /* Atividade complementar */
+                        AND CASE WHEN '$P!{cursos_transferencia}' <> '' THEN true ELSE m.ref_cod_curso IN ($P!{cursos_transferencia}) END
                         ORDER BY m.cod_matricula DESC
                         LIMIT 1
                     ) AS matricula_transferido,
