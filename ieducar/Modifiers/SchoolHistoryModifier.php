@@ -63,19 +63,34 @@ class SchoolHistoryModifier extends BaseModifier
 
     private function getTranfers($students)
     {
-        return LegacyRegistration::active()
-            ->currentYear()
-            ->where('aprovado', App_Model_MatriculaSituacao::TRANSFERIDO)
-            ->whereHas('course', function ($q) {
+        $query = LegacyRegistration::active();
+
+        $cursosTransferencia = explode(',', $this->args['cursos_transferencia']);
+
+        if ($anoTransferencia = $this->args['ano_transferencia']) {
+            $query = $query->where('matricula.ano', $anoTransferencia);
+        } else {
+            $query = $query->currentYear();
+        }
+
+        $query = $query->where('aprovado', App_Model_MatriculaSituacao::TRANSFERIDO)
+            ->whereHas('course', function ($q) use ($cursosTransferencia) {
+                if ($cursosTransferencia) {
+                    $q->whereIn('curso.cod_curso', $cursosTransferencia);
+                }
                 return $q->where('curso.modalidade_curso', 1);
             })
             ->whereHas(
                 'enrollments.schoolClass', function ($q) {
                 return $q->where('turma.tipo_atendimento', '<>', 4)->orWhereNull('turma.tipo_atendimento');
             })
-            ->whereHas('student', static function ($q) {
-                $q->whereDoesntHave('registrations', static function ($q) {
-                    $q->currentYear();
+            ->whereHas('student', static function ($q) use ($anoTransferencia) {
+                $q->whereDoesntHave('registrations', static function ($q) use ($anoTransferencia) {
+                    if ($anoTransferencia) {
+                        $q->where('matricula.ano', $anoTransferencia);
+                    } else {
+                        $q->currentYear();
+                    }
                     $q->active();
                     $q->whereIn('aprovado', [1, 2, 12, 13, 14]);
                 });
@@ -83,5 +98,7 @@ class SchoolHistoryModifier extends BaseModifier
             ->whereIn('ref_cod_aluno', $students)
             ->orderBy('cod_matricula', 'desc')
             ->pluck('cod_matricula', 'ref_cod_aluno');
+
+        return $query;
     }
 }

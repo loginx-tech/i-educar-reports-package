@@ -72,7 +72,7 @@ $j("#modelo").on('click', function(){
         $j("#cursoaluno").closest('tr').hide();
     }
 
-    if (template == 5) {
+    if (template == 5 || template == 4 || template == 3) {
       $j("#ano_transferencia").closest('tr').show();
       $j("#cursos_transferencia").closest('tr').show();
     } else {
