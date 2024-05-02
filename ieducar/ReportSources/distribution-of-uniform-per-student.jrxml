@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portabilis_distribuido_por_aluno" pageWidth="595" pageHeight="841" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3f92d803-86a0-4be9-adab-22f9919b925b">
-	<style name="Crosstab Data Text" hTextAlign="Center" hImageAlign="Center"/>
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
@@ -55,13 +57,14 @@
 	<field name="escola_uniforme" class="java.lang.String"/>
 	<field name="escola" class="java.lang.String"/>
 	<field name="ano" class="java.lang.Integer"/>
+	<field name="entregue" class="java.lang.Boolean"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="104">
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="104" uuid="e2c330a6-9f0d-4f0e-869d-5e103714c3d4"/>
+				<reportElement uuid="e2c330a6-9f0d-4f0e-869d-5e103714c3d4" x="0" y="0" width="555" height="104"/>
 				<subreportParameter name="logo">
 					<subreportParameterExpression><![CDATA[$P{logo}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -90,7 +93,7 @@
 	<columnHeader>
 		<band height="43">
 			<staticText>
-				<reportElement x="50" y="13" width="40" height="30" uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b"/>
+				<reportElement uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b" x="50" y="13" width="40" height="30"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -104,7 +107,7 @@
 				<text><![CDATA[Ano]]></text>
 			</staticText>
 			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="13" backcolor="#DEDEDE" uuid="d8e55987-bbfc-4142-97d6-f8a964ceea04"/>
+				<reportElement uuid="d8e55987-bbfc-4142-97d6-f8a964ceea04" mode="Opaque" x="0" y="0" width="555" height="13" backcolor="#DEDEDE"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -119,7 +122,7 @@
 				<textFieldExpression><![CDATA["Nome Escola: "+ $F{escola}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="90" y="13" width="97" height="30" uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b"/>
+				<reportElement uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b" x="90" y="13" width="97" height="30"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -133,7 +136,7 @@
 				<text><![CDATA[Nome do aluno]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="187" y="13" width="43" height="30" uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b"/>
+				<reportElement uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b" x="187" y="13" width="43" height="30"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -147,7 +150,7 @@
 				<text><![CDATA[Kit completo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="230" y="13" width="118" height="30" uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b"/>
+				<reportElement uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b" x="230" y="13" width="118" height="30"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -161,7 +164,7 @@
 				<text><![CDATA[Kit parcial]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="348" y="13" width="132" height="30" uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b"/>
+				<reportElement uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b" x="348" y="13" width="132" height="30"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -175,7 +178,7 @@
 				<text><![CDATA[Entregue por]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="13" width="50" height="30" uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b"/>
+				<reportElement uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b" x="0" y="13" width="50" height="30"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -189,7 +192,7 @@
 				<text><![CDATA[Cod Aluno]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="480" y="13" width="75" height="30" uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b"/>
+				<reportElement uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b" x="480" y="13" width="75" height="30"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -207,7 +210,7 @@
 	<detail>
 		<band height="38">
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="50" height="38" uuid="9957235a-07e0-423f-8530-2b665dca7397"/>
+				<reportElement uuid="9957235a-07e0-423f-8530-2b665dca7397" stretchType="RelativeToBandHeight" x="0" y="0" width="50" height="38"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -221,7 +224,7 @@
 				<textFieldExpression><![CDATA[$F{codigo_aluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="50" y="0" width="40" height="38" uuid="035c7af7-d915-4738-87a8-338421d44578"/>
+				<reportElement uuid="035c7af7-d915-4738-87a8-338421d44578" stretchType="RelativeToBandHeight" x="50" y="0" width="40" height="38"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -235,7 +238,7 @@
 				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="90" y="0" width="97" height="38" uuid="fe48b629-9354-43f9-82a5-fa93e059c21e"/>
+				<reportElement uuid="fe48b629-9354-43f9-82a5-fa93e059c21e" stretchType="RelativeToBandHeight" x="90" y="0" width="97" height="38"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -249,7 +252,7 @@
 				<textFieldExpression><![CDATA[$F{aluno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="187" y="0" width="43" height="38" uuid="dfb0397d-322e-4d48-8729-ea5b28a80752"/>
+				<reportElement uuid="dfb0397d-322e-4d48-8729-ea5b28a80752" stretchType="RelativeToBandHeight" x="187" y="0" width="43" height="38"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -263,7 +266,7 @@
 				<textFieldExpression><![CDATA[$F{recebeu_kit} == false ? "Não" : "Sim"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="230" y="0" width="118" height="38" isRemoveLineWhenBlank="true" uuid="2906be8a-413b-43d2-91cd-4456e878e7d2"/>
+				<reportElement uuid="2906be8a-413b-43d2-91cd-4456e878e7d2" x="230" y="0" width="118" height="38" isRemoveLineWhenBlank="true"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -284,7 +287,9 @@
 ($F{qt_tenis}               == 0 ? "" : ("Tênis - " + $F{qt_tenis} + " - " + $F{tm_tenis}))) : " - "]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="348" y="0" width="132" height="38" uuid="15a46d2a-6754-46b5-94b2-b07933fd2288"/>
+				<reportElement uuid="15a46d2a-6754-46b5-94b2-b07933fd2288" stretchType="RelativeToBandHeight" x="348" y="0" width="132" height="38">
+					<printWhenExpression><![CDATA[$F{entregue}]]></printWhenExpression>
+				</reportElement>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -298,7 +303,7 @@
 				<textFieldExpression><![CDATA[$F{escola_uniforme}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="480" y="0" width="75" height="38" uuid="15a46d2a-6754-46b5-94b2-b07933fd2288"/>
+				<reportElement uuid="15a46d2a-6754-46b5-94b2-b07933fd2288" stretchType="RelativeToBandHeight" x="480" y="0" width="75" height="38"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -309,7 +314,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{data} ==  null ? "Data não informada" : $F{data}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{entregue} ? ($F{data} ==  null ? "Data não informada" : $F{data}) : ""]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
