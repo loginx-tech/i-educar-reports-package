@@ -41,12 +41,12 @@ class StudentsEntranceAndAllocationReport extends Portabilis_Report_ReportCore
         $data_inicial = ' AND TRUE ';
         $data_final = ' AND TRUE ';
 
-        if ($this->args['data_inicial']) {
-            $data_inicial = " AND matricula.data_matricula >= '{$data_inicial}'::date ";
+        if ($dataInicial = $this->args['data_inicial']) {
+            $data_inicial = " AND matricula.data_matricula >= '{$dataInicial}'::date ";
         }
 
-        if ($this->args['data_final']) {
-            $data_inicial = " AND matricula.data_matricula <= '{$data_final}'::date ";
+        if ($dataFinal = $this->args['data_final']) {
+            $data_final = " AND matricula.data_matricula <= '{$dataFinal}'::date ";
         }
 
         return "
