@@ -96,7 +96,7 @@ class SchoolHistoryModifier extends BaseModifier
                 });
             })
             ->whereIn('ref_cod_aluno', $students)
-            ->orderBy('cod_matricula', 'desc')
+            ->orderBy('cod_matricula', 'asc')
             ->pluck('cod_matricula', 'ref_cod_aluno');
 
         return $query;
