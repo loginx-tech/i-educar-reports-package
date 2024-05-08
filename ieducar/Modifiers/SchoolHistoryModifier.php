@@ -65,7 +65,7 @@ class SchoolHistoryModifier extends BaseModifier
     {
         $query = LegacyRegistration::active();
 
-        $cursosTransferencia = explode(',', $this->args['cursos_transferencia']);
+        $cursosTransferencia = is_array($this->args['cursos_transferencia']) ? explode(',', $this->args['cursos_transferencia']) : null;
 
         if ($anoTransferencia = $this->args['ano_transferencia']) {
             $query = $query->where('matricula.ano', $anoTransferencia);
