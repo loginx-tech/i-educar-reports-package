@@ -45,6 +45,12 @@ SELECT aluno.cod_aluno AS \"codigo_aluno\",
        cadastro.pessoa.nome AS \"aluno\",
        uniform_distributions.type = 'Solicitado' AS \"solicitado\",
        uniform_distributions.type = 'Entregue' AS \"entregue\",
+       CASE
+            WHEN complete_kit THEN 'Kit Completo'
+            WHEN winter_kit THEN 'Kit Inverno'
+            WHEN summer_kit THEN 'Kit Verão'
+       END AS kit_type,
+       kit_size,
        COALESCE(uniform_distributions.complete_kit, false) AS \"recebeu_kit\",
        COALESCE(uniform_distributions.coat_pants_qty::int, '0') AS \"qt_agasalho\",
        COALESCE(uniform_distributions.shirt_short_qty::int, '0') AS \"qt_camiseta_curta\",
@@ -98,6 +104,10 @@ GROUP BY aluno,
          uniform_distributions.year,
          uniform_distributions.type,
          recebeu_kit,
+         complete_kit,
+         winter_kit,
+         summer_kit,
+         kit_size,
          qt_agasalho,
          qt_camiseta_curta,
          qt_camiseta_longa,
