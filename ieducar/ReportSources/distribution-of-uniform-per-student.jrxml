@@ -39,6 +39,7 @@
 	<field name="codigo_aluno" class="java.lang.Integer"/>
 	<field name="data" class="java.lang.String"/>
 	<field name="aluno" class="java.lang.String"/>
+    <field name="kit_type" class="java.lang.String"/>
 	<field name="recebeu_kit" class="java.lang.Boolean"/>
 	<field name="qt_agasalho" class="java.lang.Integer"/>
 	<field name="qt_camiseta_curta" class="java.lang.Integer"/>
@@ -147,7 +148,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<text><![CDATA[Kit completo]]></text>
+				<text><![CDATA[Tipo de kit]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="106b95f3-8cea-4dc0-a2b5-e62bc71ed94b" x="230" y="13" width="118" height="30"/>
@@ -263,7 +264,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{recebeu_kit} == false ? "Não" : "Sim"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{kit_type}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="2906be8a-413b-43d2-91cd-4456e878e7d2" x="230" y="0" width="118" height="38" isRemoveLineWhenBlank="true"/>
@@ -288,7 +289,6 @@
 			</textField>
 			<textField>
 				<reportElement uuid="15a46d2a-6754-46b5-94b2-b07933fd2288" stretchType="RelativeToBandHeight" x="348" y="0" width="132" height="38">
-					<printWhenExpression><![CDATA[$F{entregue}]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<pen lineWidth="1.0"/>
@@ -300,7 +300,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{escola_uniforme}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{entregue} ? $F{escola_uniforme} : ""]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="15a46d2a-6754-46b5-94b2-b07933fd2288" stretchType="RelativeToBandHeight" x="480" y="0" width="75" height="38"/>
