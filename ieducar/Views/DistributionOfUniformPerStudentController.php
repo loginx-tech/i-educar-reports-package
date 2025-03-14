@@ -36,7 +36,54 @@ class DistributionOfUniformPerStudentController extends Portabilis_Controller_Re
         $this->inputsHelper()->dynamic('curso', ['required' => false]);
         $this->inputsHelper()->dynamic('serie', ['required' => false]);
         $this->inputsHelper()->dynamic('turma', ['required' => false]);
+
+        $this->inputsHelper()->select('modelo', [
+            'label' => 'Modelo',
+            'resources' => [
+                1 => 'Modelo 1',
+                2 => 'Modelo 2'
+            ],
+            'required' => false,
+            'value' => 1
+        ]);
+
+        $resources = [
+            1 => 'Aprovado',
+            2 => 'Reprovado',
+            14 => 'Reprovado por falta',
+            3 => 'Cursando',
+            4 => 'Transferido',
+            5 => 'Reclassificado',
+            6 => 'Abandono',
+            7 => 'Em exame',
+            9 => 'Exceto Transferidos/Abandono',
+            10 => 'Todas',
+            12 => 'Aprovado com dependência',
+            16 => 'Aprovado após exame'
+        ];
+
+        $options = [
+            'label' => 'Situação do aluno',
+            'resources' => $resources,
+            'value' => 10
+        ];
+
+        $this->inputsHelper()->select('situacao_matricula', $options);
+
+        $this->inputsHelper()->select('tipo_kit', [
+            'label' => 'Tipo de kit',
+            'resources' => [
+                0 => 'Todos',
+                1 => 'Inverno',
+                2 => 'Verão'
+            ],
+            'required' => false,
+            'value' => 0
+        ]);
+
         $this->inputsHelper()->simpleSearchAluno(null, ['required' => false]);
+
+        $this->loadResourceAssets($this->getDispatcher());
     }
 
     /**
@@ -51,6 +98,9 @@ class DistributionOfUniformPerStudentController extends Portabilis_Controller_Re
         $this->report->addArg('curso', (int) $this->getRequest()->ref_cod_curso);
         $this->report->addArg('serie', (int) $this->getRequest()->ref_cod_serie);
         $this->report->addArg('turma', (int) $this->getRequest()->ref_cod_turma);
+        $this->report->addArg('modelo', (int) $this->getRequest()->modelo);
+        $this->report->addArg('situacao', (int) $this->getRequest()->situacao_matricula);
+        $this->report->addArg('tipo_kit', (int) $this->getRequest()->tipo_kit);
     }
 
     /**
