@@ -21,6 +21,7 @@ trait ReportCardTrait
             SELECT fcn_upper(instituicao.nm_instituicao) AS nome_instituicao,
               fcn_upper(instituicao.nm_responsavel) AS nome_responsavel,
               relatorio.get_nome_escola(escola.cod_escola) AS nm_escola,
+              aluno.aluno_estado_id AS codigo_ra,
               escola_ano_letivo.ano AS ano,
               view_dados_escola.logradouro AS logradouro,
               view_dados_escola.telefone AS fone,

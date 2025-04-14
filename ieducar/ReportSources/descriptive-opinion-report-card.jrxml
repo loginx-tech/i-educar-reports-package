@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portabilis_boletim_parecer" language="groovy" pageWidth="842" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1cbd6c8d-2329-4968-a1db-f173bd1ccd02">
-	<property name="ireport.zoom" value="1.6105100000000048"/>
-	<property name="ireport.x" value="162"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="1.7715610000000057"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="50"/>
 	<parameter name="ano" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
 	</parameter>
@@ -118,6 +118,7 @@
 	<field name="total_geral_faltas_componente" class="java.lang.Long"/>
 	<field name="total_faltas_componente" class="java.lang.Long"/>
 	<field name="rotulo_descricao" class="java.lang.String"/>
+	<field name="codigo_ra" class="java.lang.String"/>
 	<group name="matricula" isStartNewPage="true" isResetPageNumber="true">
 		<groupExpression><![CDATA[$F{matricula}]]></groupExpression>
 		<groupHeader>
@@ -137,14 +138,14 @@
 					<textFieldExpression><![CDATA[$F{nome_curso}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement uuid="6bcd6748-4832-4eed-89f6-cebd70f5fe22" x="221" y="2" width="64" height="13"/>
+					<reportElement uuid="6bcd6748-4832-4eed-89f6-cebd70f5fe22" x="321" y="2" width="150" height="13"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<text><![CDATA[02 - TURNO]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement uuid="f2f487e7-1644-4f38-bbfb-9c3de8fa48e3" x="221" y="15" width="100" height="14"/>
+					<reportElement uuid="f2f487e7-1644-4f38-bbfb-9c3de8fa48e3" x="321" y="15" width="150" height="14"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
@@ -165,7 +166,7 @@
 					<textFieldExpression><![CDATA[$F{nome_serie}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="80e639ad-fe6e-4c04-ab27-30bf5ae50aee" x="480" y="45" width="150" height="14"/>
+					<reportElement uuid="80e639ad-fe6e-4c04-ab27-30bf5ae50aee" x="480" y="46" width="150" height="14"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
@@ -192,7 +193,7 @@
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement uuid="fbcb2f5f-9327-44c6-a88c-52e8e27402e3" x="217" y="0" width="1" height="31"/>
+					<reportElement uuid="fbcb2f5f-9327-44c6-a88c-52e8e27402e3" x="316" y="0" width="1" height="62"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
@@ -275,14 +276,14 @@
 					</graphicElement>
 				</line>
 				<staticText>
-					<reportElement uuid="33a646a9-0d94-4bbc-86f8-23582a7479f4" x="643" y="32" width="75" height="13"/>
+					<reportElement uuid="33a646a9-0d94-4bbc-86f8-23582a7479f4" x="643" y="33" width="75" height="13"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[07 - ETAPA]]></text>
+					<text><![CDATA[08 - ETAPA]]></text>
 				</staticText>
 				<textField>
-					<reportElement uuid="aa9d8283-c414-42fd-87dc-2eab8c8223dc" x="643" y="45" width="150" height="14"/>
+					<reportElement uuid="aa9d8283-c414-42fd-87dc-2eab8c8223dc" x="643" y="46" width="150" height="14"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
@@ -320,25 +321,25 @@
 					<text><![CDATA[04 - TURMA]]></text>
 				</staticText>
 				<staticText>
-					<reportElement uuid="d0633ce6-283b-41bd-b538-ad74f966c2a2" x="4" y="32" width="100" height="13"/>
+					<reportElement uuid="d0633ce6-283b-41bd-b538-ad74f966c2a2" x="4" y="33" width="100" height="13"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<text><![CDATA[05 - ALUNO]]></text>
 				</staticText>
 				<textField>
-					<reportElement uuid="c20d1c51-e4bb-495c-b54f-9c83daf6cdad" x="4" y="45" width="470" height="14"/>
+					<reportElement uuid="c20d1c51-e4bb-495c-b54f-9c83daf6cdad" x="4" y="46" width="302" height="14"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nome_aluno} + ($F{nome_aluno_registro} == null ? "" : ", nome de registro " + $F{nome_aluno_registro})]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement uuid="33a646a9-0d94-4bbc-86f8-23582a7479f4" x="480" y="32" width="75" height="13"/>
+					<reportElement uuid="33a646a9-0d94-4bbc-86f8-23582a7479f4" x="480" y="33" width="75" height="13"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[06 - SITUAÇÃO]]></text>
+					<text><![CDATA[07 - SITUAÇÃO]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
 					<reportElement uuid="b9c8d6bc-fa9e-4285-96af-eb005acd8c9e" x="643" y="15" width="150" height="14"/>
@@ -346,6 +347,20 @@
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nome_turma}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="33a646a9-0d94-4bbc-86f8-23582a7479f4" x="321" y="33" width="75" height="13"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[06 - CÓDIGO RA]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="80e639ad-fe6e-4c04-ab27-30bf5ae50aee" x="321" y="46" width="150" height="14"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codigo_ra}]]></textFieldExpression>
 				</textField>
 			</band>
 			<band height="37" splitType="Stretch">
