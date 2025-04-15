@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portabilis_boletim_primeiro_ano_bimestral" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a004eae-d897-4de6-8a61-b0ebdf3de862">
-	<property name="ireport.zoom" value="1.8627639691774802"/>
-	<property name="ireport.x" value="354"/>
-	<property name="ireport.y" value="250"/>
+	<property name="ireport.zoom" value="2.0490403660952294"/>
+	<property name="ireport.x" value="19"/>
+	<property name="ireport.y" value="122"/>
 	<style name="listra" isDefault="true" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.0" lineColor="#000000"/>
@@ -126,6 +126,7 @@
 	<field name="legenda_orientacao" class="java.lang.String"/>
 	<field name="tabela_conversao" class="java.lang.String"/>
 	<field name="quantidade_etapas" class="java.lang.Integer"/>
+	<field name="codigo_ra" class="java.lang.String"/>
 	<group name="matricula" isStartNewPage="true" keepTogether="true">
 		<groupExpression><![CDATA[$F{matricula}]]></groupExpression>
 		<groupHeader>
@@ -154,8 +155,14 @@
 				</subreport>
 			</band>
 			<band height="50">
+				<rectangle>
+					<reportElement uuid="9fa1b2ad-e3ac-4fc4-a325-415642bf8042" mode="Transparent" x="0" y="0" width="555" height="50"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</rectangle>
 				<textField>
-					<reportElement uuid="070b3145-d31f-47aa-b28b-824262f291a1" x="3" y="13" width="272" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="070b3145-d31f-47aa-b28b-824262f291a1" x="3" y="13" width="266" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
@@ -187,10 +194,10 @@
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[03 - TURNO]]></text>
+					<text><![CDATA[04 - TURNO]]></text>
 				</staticText>
 				<line>
-					<reportElement uuid="46adceec-2d8b-4b02-a13d-ccc6c13a2aca" x="404" y="25" width="1" height="25" printWhenGroupChanges="secao"/>
+					<reportElement uuid="46adceec-2d8b-4b02-a13d-ccc6c13a2aca" x="404" y="0" width="1" height="50" printWhenGroupChanges="secao"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
@@ -214,10 +221,10 @@
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[04 - SÉRIE]]></text>
+					<text><![CDATA[05 - SÉRIE]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement uuid="bc94d3f1-5a1f-4de1-92f2-ccb58d9db77b" x="283" y="13" width="187" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="bc94d3f1-5a1f-4de1-92f2-ccb58d9db77b" x="283" y="13" width="120" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
@@ -235,14 +242,14 @@
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[06 - SITUAÇÃO]]></text>
+					<text><![CDATA[07 - SITUAÇÃO]]></text>
 				</staticText>
 				<staticText>
 					<reportElement uuid="ba054a31-a9e2-4641-b333-9b200c96994e" x="283" y="26" width="59" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[05 - TURMA]]></text>
+					<text><![CDATA[06 - TURMA]]></text>
 				</staticText>
 				<line>
 					<reportElement uuid="c832b7c0-52d1-4160-baa9-9493714bfa56" x="136" y="25" width="1" height="25" printWhenGroupChanges="secao"/>
@@ -262,12 +269,20 @@
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</line>
-				<rectangle>
-					<reportElement uuid="9fa1b2ad-e3ac-4fc4-a325-415642bf8042" mode="Transparent" x="0" y="0" width="555" height="50"/>
-					<graphicElement>
-						<pen lineWidth="0.25"/>
-					</graphicElement>
-				</rectangle>
+				<staticText>
+					<reportElement uuid="e4d37dea-e3a4-4fa4-ba79-3406d376c0ac" x="407" y="2" width="68" height="12" printWhenGroupChanges="secao"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[03 - CÓDIGO RA]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="bc94d3f1-5a1f-4de1-92f2-ccb58d9db77b" x="407" y="13" width="120" height="12" printWhenGroupChanges="secao"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codigo_ra}]]></textFieldExpression>
+				</textField>
 			</band>
 			<band height="28">
 				<staticText>

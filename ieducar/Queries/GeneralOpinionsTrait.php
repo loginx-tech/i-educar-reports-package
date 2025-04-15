@@ -27,6 +27,7 @@ trait GeneralOpinionsTrait
             vde.logradouro,
             vde.email,
             vde.telefone AS fone,
+            aluno.aluno_estado_id AS codigo_ra,
             curso.nm_curso AS nome_curso,
             tt.nome AS periodo,
             serie.nm_serie AS nome_serie,
@@ -73,7 +74,7 @@ trait GeneralOpinionsTrait
                                 WHERE
                                     tm.ref_cod_turma = turma.cod_turma
                                     AND tm.ref_cod_modulo = modulo.cod_modulo
-                                    AND modulo.ativo = 1 LIMIT 1                            
+                                    AND modulo.ativo = 1 LIMIT 1
                         )
                     END
             ) AS etapa
@@ -180,6 +181,7 @@ trait GeneralOpinionsTrait
             tt.nome,
             m.cod_matricula,
             pessoa.nome,
+            aluno_estado_id,
             fisica.data_nasc,
             vs.texto_situacao,
             pg.parecer,

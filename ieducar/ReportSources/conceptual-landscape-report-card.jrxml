@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="conceptual-landscape-report-card" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a004eae-d897-4de6-8a61-b0ebdf3de862">
-	<property name="ireport.zoom" value="1.8627639691774809"/>
-	<property name="ireport.x" value="610"/>
-	<property name="ireport.y" value="280"/>
+	<property name="ireport.zoom" value="1.862763969177484"/>
+	<property name="ireport.x" value="619"/>
+	<property name="ireport.y" value="121"/>
 	<style name="listra" isDefault="true" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.0" lineColor="#000000"/>
@@ -114,6 +114,7 @@
 	<field name="legenda_notas" class="java.lang.String"/>
 	<field name="legenda_orientacao" class="java.lang.String"/>
 	<field name="quantidade_etapas" class="java.lang.Integer"/>
+	<field name="codigo_ra" class="java.lang.String"/>
 	<group name="matricula" isStartNewPage="true" isResetPageNumber="true">
 		<groupExpression><![CDATA[$F{matricula}]]></groupExpression>
 		<groupHeader>
@@ -141,23 +142,29 @@
 					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "header-landscape-report-card.jasper"]]></subreportExpression>
 				</subreport>
 			</band>
-			<band height="27">
+			<band height="52">
+				<rectangle>
+					<reportElement uuid="749f4b5f-b927-4d9a-9882-efea313aead5" mode="Transparent" x="0" y="0" width="802" height="52"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</rectangle>
 				<textField>
-					<reportElement uuid="070b3145-d31f-47aa-b28b-824262f291a1" x="3" y="13" width="224" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="070b3145-d31f-47aa-b28b-824262f291a1" x="3" y="13" width="398" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nome_aluno}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement uuid="ca5a272b-1dcb-42c8-9b01-3748ccd5a93c" x="535" y="13" width="90" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="ca5a272b-1dcb-42c8-9b01-3748ccd5a93c" x="605" y="13" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nome_serie}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement uuid="e4d37dea-e3a4-4fa4-ba79-3406d376c0ac" x="231" y="2" width="68" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="e4d37dea-e3a4-4fa4-ba79-3406d376c0ac" x="405" y="2" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
@@ -171,97 +178,99 @@
 					<text><![CDATA[01 - ALUNO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement uuid="ee74e46b-88d4-47c4-af1f-368c03e96fb0" x="426" y="2" width="64" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="ee74e46b-88d4-47c4-af1f-368c03e96fb0" x="206" y="29" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[03 - TURNO]]></text>
+					<text><![CDATA[05 - TURNO]]></text>
 				</staticText>
-				<line>
-					<reportElement uuid="6ca8e70e-2d2b-4bbd-9bc5-dc153eee752d" x="423" y="0" width="1" height="27" printWhenGroupChanges="secao"/>
-					<graphicElement>
-						<pen lineWidth="0.25"/>
-					</graphicElement>
-				</line>
 				<textField isBlankWhenNull="true">
-					<reportElement uuid="1e0f04ed-3eee-4f78-b61e-2d0c313f0376" x="426" y="13" width="100" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="1e0f04ed-3eee-4f78-b61e-2d0c313f0376" x="206" y="40" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{periodo}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement uuid="46e4442f-71b2-4dc8-bf07-7bc441b30d4e" x="629" y="13" width="90" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="46e4442f-71b2-4dc8-bf07-7bc441b30d4e" x="3" y="40" width="199" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nome_turma}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement uuid="6250cefb-5f15-4e73-9a38-dd57d5223696" x="535" y="2" width="58" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="6250cefb-5f15-4e73-9a38-dd57d5223696" x="605" y="2" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[04 - SÉRIE]]></text>
+					<text><![CDATA[03 - SÉRIE]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement uuid="bc94d3f1-5a1f-4de1-92f2-ccb58d9db77b" x="231" y="13" width="187" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="bc94d3f1-5a1f-4de1-92f2-ccb58d9db77b" x="405" y="13" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nome_curso}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="b2107acc-bdcf-462d-b686-beba90911fc7" x="724" y="13" width="75" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="b2107acc-bdcf-462d-b686-beba90911fc7" x="605" y="40" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{situacao}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement uuid="ef145156-4697-410b-aaa9-ad6e5323e396" x="724" y="2" width="75" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="ef145156-4697-410b-aaa9-ad6e5323e396" x="605" y="29" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[06 - SITUAÇÃO]]></text>
+					<text><![CDATA[07 - SITUAÇÃO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ba054a31-a9e2-4641-b333-9b200c96994e" x="3" y="29" width="199" height="12" printWhenGroupChanges="secao"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[04 - TURMA]]></text>
 				</staticText>
 				<line>
-					<reportElement uuid="3c141354-8fbd-472f-a79e-8860562d5b5c" x="626" y="0" width="1" height="27" printWhenGroupChanges="secao"/>
+					<reportElement uuid="c2d660e7-7a18-482b-be4f-032151ded81e" x="601" y="0" width="1" height="52" printWhenGroupChanges="secao"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement uuid="b4968172-5ff4-400f-8cef-0daa8d801048" x="401" y="0" width="1" height="52" printWhenGroupChanges="secao"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement uuid="b4968172-5ff4-400f-8cef-0daa8d801048" x="202" y="25" width="1" height="27" printWhenGroupChanges="secao"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</line>
 				<staticText>
-					<reportElement uuid="ba054a31-a9e2-4641-b333-9b200c96994e" x="629" y="2" width="59" height="12" printWhenGroupChanges="secao"/>
+					<reportElement uuid="ee74e46b-88d4-47c4-af1f-368c03e96fb0" x="405" y="29" width="196" height="12" printWhenGroupChanges="secao"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
-					<text><![CDATA[05 - TURMA]]></text>
+					<text><![CDATA[06 - CÓDIGO RA]]></text>
 				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="1e0f04ed-3eee-4f78-b61e-2d0c313f0376" x="405" y="40" width="196" height="12" printWhenGroupChanges="secao"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codigo_ra}]]></textFieldExpression>
+				</textField>
 				<line>
-					<reportElement uuid="c2d660e7-7a18-482b-be4f-032151ded81e" x="721" y="0" width="1" height="27" printWhenGroupChanges="secao"/>
+					<reportElement uuid="b4968172-5ff4-400f-8cef-0daa8d801048" x="0" y="25" width="802" height="1" printWhenGroupChanges="secao"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</line>
-				<line>
-					<reportElement uuid="c832b7c0-52d1-4160-baa9-9493714bfa56" x="533" y="0" width="1" height="27" printWhenGroupChanges="secao"/>
-					<graphicElement>
-						<pen lineWidth="0.25"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement uuid="b4968172-5ff4-400f-8cef-0daa8d801048" x="228" y="0" width="1" height="27" printWhenGroupChanges="secao"/>
-					<graphicElement>
-						<pen lineWidth="0.25"/>
-					</graphicElement>
-				</line>
-				<rectangle>
-					<reportElement uuid="749f4b5f-b927-4d9a-9882-efea313aead5" mode="Transparent" x="0" y="0" width="802" height="27"/>
-					<graphicElement>
-						<pen lineWidth="0.25"/>
-					</graphicElement>
-				</rectangle>
 			</band>
 			<band height="25">
 				<rectangle>
