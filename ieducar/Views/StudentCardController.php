@@ -51,7 +51,8 @@ class StudentCardController extends Portabilis_Controller_ReportCoreController
             $resources = [
                 1 => 'Modelo 1',
                 2 => 'Modelo 2',
-                3 => 'Modelo 3'
+                3 => 'Modelo 3',
+                4 => 'Modelo 4'
             ];
 
             $options = ['label' => 'Modelo', 'resources' => $resources, 'value' => 1];
@@ -131,6 +132,12 @@ class StudentCardController extends Portabilis_Controller_ReportCoreController
         }
         if ((int) $this->getRequest()->modelo == 1) {
             $this->report->addArg('imprimir_serie', $this->getRequest()->imprimir_serie ? 1 : 0);
+        }
+
+
+        if ($this->getRequest()->modelo == 4) {
+            $this->report->addArg('img_frente', config('legacy.report.carteira_estudante_frente') ?: '');
+            $this->report->addArg('img_verso', config('legacy.report.carteira_estudante_verso') ?: '');
         }
     }
 }

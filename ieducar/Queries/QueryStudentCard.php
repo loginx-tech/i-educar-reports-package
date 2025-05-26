@@ -15,6 +15,7 @@ class QueryStudentCard extends QueryBridge
                 curso.nm_curso AS nome_curso,
                 turma.nm_turma AS nome_turma,
                 serie.nm_serie AS nome_serie,
+                turma_turno.nome AS periodo,
                 aluno.cod_aluno AS cod_aluno,
                 aluno.aluno_estado_id AS aluno_estado_id,
                 matricula.ano AS ano_letivo,
@@ -51,6 +52,7 @@ class QueryStudentCard extends QueryBridge
                 AND turma.ref_cod_curso = curso.cod_curso
                 AND turma.ano = escola_ano_letivo.ano
                 AND turma.ativo = 1)
+            INNER JOIN pmieducar.turma_turno ON (turma_turno.id = turma.turma_turno_id)
             INNER JOIN pmieducar.matricula_turma ON (matricula_turma.ref_cod_turma = turma.cod_turma)
             INNER JOIN pmieducar.matricula ON (matricula.cod_matricula = matricula_turma.ref_cod_matricula
                 AND matricula.ref_ref_cod_escola = escola.cod_escola
