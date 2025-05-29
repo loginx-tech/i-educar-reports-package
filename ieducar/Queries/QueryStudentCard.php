@@ -26,12 +26,6 @@ class QueryStudentCard extends QueryBridge
                 fone_pessoa.ddd AS fone_ddd,
                 concat('(', fone_pessoa.ddd, ')', ' ', to_char(fone_pessoa.fone, '99999-9999'::text)) AS fone_escola,
                 documento.rg AS rg,
-                (
-                    SELECT string_agg(cod_cid, ', ')
-                    FROM cadastro.fisica_deficiencia fd
-                    JOIN cadastro.deficiencia d ON d.cod_deficiencia = fd.ref_cod_deficiencia
-                    WHERE fd.ref_idpes = aluno.ref_idpes
-                ) AS cid,
                 fisica_foto.caminho AS foto,
                 CASE WHEN fisica_foto.caminho IS NULL THEN 0 ELSE 1 END AS existe_foto,
                 CASE $P{cor_de_fundo}
