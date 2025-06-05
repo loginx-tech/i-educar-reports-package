@@ -162,7 +162,7 @@
 				<reportElement uuid="3a409d0f-1fbc-460e-9a20-b99f8b06a595" x="296" y="58" width="67" height="92"/>
 				<imageExpression><![CDATA[$F{foto}]]></imageExpression>
 			</image>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="d2f64edb-fdd3-4c14-9516-e8bd55ab11b8" x="30" y="42" width="198" height="35"/>
 				<textElement markup="none">
 					<font fontName="DejaVu Sans" size="6" isBold="true"/>
