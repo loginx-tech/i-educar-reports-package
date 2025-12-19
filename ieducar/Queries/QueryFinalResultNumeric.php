@@ -37,7 +37,6 @@ INNER JOIN pmieducar.curso ON (curso.cod_curso = escola_curso.ref_cod_curso AND 
 INNER JOIN pmieducar.serie ON (serie.cod_serie = escola_serie.ref_cod_serie AND serie.ativo = 1)
 INNER JOIN pmieducar.turma ON (turma.ref_ref_cod_escola = escola.cod_escola
                           AND turma.ref_cod_curso = curso.cod_curso
-                          AND turma.ref_ref_cod_serie = serie.cod_serie
                           AND turma.ano = escola_ano_letivo.ano
                           AND turma.ativo = 1)
 INNER JOIN modules.regra_avaliacao_serie_ano rasa
@@ -73,6 +72,7 @@ WHERE escola_ano_letivo.ativo = 1
           AND aluno.ativo = 1) > 0
   AND matricula.ano = $P{ano}
   AND matricula_turma.ref_cod_turma = $P{turma}
+  AND serie.cod_serie = $P{serie}
   AND (CASE WHEN $P{dependencia} = 1 THEN matricula.dependencia = TRUE WHEN $P{dependencia} = 2 THEN matricula.dependencia = FALSE ELSE TRUE END)
   AND matricula_turma.ref_cod_matricula = matricula.cod_matricula
   AND (CASE WHEN matricula.dependencia THEN EXISTS (SELECT 1
