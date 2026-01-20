@@ -13,7 +13,7 @@ class DistributionOfUniformPerStudentReport extends Portabilis_Report_ReportCore
      */
     public function templateName()
     {
-        return $this->args['modelo'] == 2 ? 'distribution-of-uniform-per-schoolClass' : 'distribution-of-uniform-per-student';
+        return $this->args['modelo'] == 1 ? 'distribution-of-uniform-per-student' : 'distribution-of-uniform-per-schoolClass';
     }
 
     /**

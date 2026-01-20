@@ -41,7 +41,8 @@ class DistributionOfUniformPerStudentController extends Portabilis_Controller_Re
             'label' => 'Modelo',
             'resources' => [
                 1 => 'Modelo 1',
-                2 => 'Modelo 2'
+                2 => 'Modelo 2',
+                3 => 'Modelo 2026',
             ],
             'required' => false,
             'value' => 1
