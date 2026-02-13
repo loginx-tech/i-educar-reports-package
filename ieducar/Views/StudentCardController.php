@@ -83,6 +83,13 @@ class StudentCardController extends Portabilis_Controller_ReportCoreController
         ];
         $this->inputsHelper()->select('cor_de_fundo', $options);
 
+        $this->inputsHelper()->text('subtitle', [
+            'required' => false,
+            'label' => 'Subtítulo',
+            'size' => 50,
+            'max_length' => 80,
+        ]);
+
         $this->loadResourceAssets($this->getDispatcher());
     }
 
@@ -101,6 +108,7 @@ class StudentCardController extends Portabilis_Controller_ReportCoreController
         $this->report->addArg('turma', (int) $this->getRequest()->ref_cod_turma);
         $this->report->addArg('validade', $this->getRequest()->validade);
         $this->report->addArg('cor_de_fundo', (int) $this->getRequest()->cor_de_fundo);
+        $this->report->addArg('subtitle', $this->getRequest()->subtitle);
 
         $configPath = config('legacy.report.caminho_fundo_carteira_transporte');
         $path = empty($configPath) ? '/var/www/ieducar/ieducar/modules/Reports/Assets/Images/StudentCard' : $configPath;
