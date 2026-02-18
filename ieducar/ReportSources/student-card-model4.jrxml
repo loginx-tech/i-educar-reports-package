@@ -311,7 +311,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="6" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{subtitle}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Rota: CEI André Franco Montoro"]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
