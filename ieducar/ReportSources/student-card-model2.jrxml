@@ -28,6 +28,9 @@
     <parameter name="validade" class="java.lang.String">
         <defaultValueExpression><![CDATA[""]]></defaultValueExpression>
     </parameter>
+    <parameter name="subtitle" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
     <parameter name="situacao_matricula" class="java.lang.String"/>
     <parameter name="modelo" class="java.lang.String"/>
     <parameter name="cor_de_fundo" class="java.lang.String"/>
