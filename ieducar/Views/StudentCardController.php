@@ -52,7 +52,7 @@ class StudentCardController extends Portabilis_Controller_ReportCoreController
                 1 => 'Modelo 1',
                 2 => 'Modelo 2',
                 3 => 'Modelo 3',
-                4 => 'Modelo 4'
+                4 => 'Carteira Transporte'
             ];
 
             $options = ['label' => 'Modelo', 'resources' => $resources, 'value' => 1];

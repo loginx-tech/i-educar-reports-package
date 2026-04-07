@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portabilis_carteira_estudante" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="20" uuid="10064c28-4cf5-460c-912c-f9e32f2b649e">
-	<property name="ireport.zoom" value="2.657341500000026"/>
-	<property name="ireport.x" value="522"/>
-	<property name="ireport.y" value="125"/>
+	<property name="ireport.zoom" value="2.923075650000031"/>
+	<property name="ireport.x" value="789"/>
+	<property name="ireport.y" value="208"/>
 	<parameter name="ano" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
 	</parameter>
@@ -76,6 +76,14 @@
 	<field name="periodo" class="java.lang.String"/>
 	<field name="fone_escola" class="java.lang.String"/>
 	<field name="cid" class="java.lang.String"/>
+	<field name="autorizado_um" class="java.lang.String"/>
+	<field name="parentesco_um" class="java.lang.String"/>
+	<field name="autorizado_dois" class="java.lang.String"/>
+	<field name="parentesco_dois" class="java.lang.String"/>
+	<field name="autorizado_tres" class="java.lang.String"/>
+	<field name="parentesco_tres" class="java.lang.String"/>
+	<field name="fone_aluno" class="java.lang.String"/>
+	<field name="endereco_completo" class="java.lang.String"/>
 	<variable name="tot_alunos" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$F{cod_aluno}]]></variableExpression>
 	</variable>
@@ -165,23 +173,23 @@
 				<reportElement uuid="3a409d0f-1fbc-460e-9a20-b99f8b06a595" x="301" y="70" width="54" height="82"/>
 				<imageExpression><![CDATA[$F{foto}]]></imageExpression>
 			</image>
-			<textField isBlankWhenNull="true">
-				<reportElement uuid="d2f64edb-fdd3-4c14-9516-e8bd55ab11b8" x="30" y="42" width="198" height="35"/>
+			<staticText>
+				<reportElement uuid="adaea771-afc7-4ac3-8be4-db3ad6f0151a" x="30" y="42" width="194" height="8"/>
 				<textElement markup="none">
 					<font fontName="DejaVu Sans" size="6" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{lei_estudante}]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[Pessoas autorizadas a retirar o estudante:]]></text>
+			</staticText>
 			<line>
-				<reportElement uuid="53fd568a-9782-4afc-b118-9f2f265d4d73" x="30" y="133" width="198" height="1"/>
+				<reportElement uuid="53fd568a-9782-4afc-b118-9f2f265d4d73" x="370" y="152" width="166" height="1"/>
 				<graphicElement>
 					<pen lineWidth="0.6"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement uuid="bdc0e411-7570-4760-91de-b4f106d4adff" x="41" y="136" width="174" height="10"/>
+				<reportElement uuid="bdc0e411-7570-4760-91de-b4f106d4adff" x="367" y="154" width="165" height="10"/>
 				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+					<font fontName="DejaVu Sans" size="5" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Assinatura do(a) Diretor(a)/Funcionário Administrativo]]></text>
 			</staticText>
@@ -311,7 +319,90 @@
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="6" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Rota: CEI André Franco Montoro"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{subtitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="59" width="220" height="8">
+					<printWhenExpression><![CDATA[$F{autorizado_um} != null && $F{autorizado_um} != ""]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_um}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="69" width="220" height="8">
+					<printWhenExpression><![CDATA[$F{autorizado_um} != null && $F{autorizado_um} != ""]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Parentesco:</b> " + $F{parentesco_um}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="79" width="220" height="8">
+					<printWhenExpression><![CDATA[$F{autorizado_dois} != null && $F{autorizado_dois} != ""]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_dois}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="89" width="220" height="8">
+					<printWhenExpression><![CDATA[$F{autorizado_dois} != null && $F{autorizado_dois} != ""]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Parentesco:</b> " + $F{parentesco_dois}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="99" width="220" height="8">
+					<printWhenExpression><![CDATA[$F{autorizado_tres} != null && $F{autorizado_tres} != ""]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_tres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="109" width="220" height="8">
+					<printWhenExpression><![CDATA[$F{autorizado_tres} != null && $F{autorizado_tres} != ""]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Parentesco:</b> " + $F{parentesco_tres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="129" width="220" height="30"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement markup="html">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Endereço do estudante:</b> " + $F{endereco_completo} + "<br>" +
+"<b>Telefone para contato:</b> " + $F{fone_aluno}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
