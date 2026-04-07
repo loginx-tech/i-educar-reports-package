@@ -20,11 +20,31 @@ class QueryStudentCard extends QueryBridge
                 aluno.aluno_estado_id AS aluno_estado_id,
                 matricula.ano AS ano_letivo,
                 educacenso_cod_aluno.cod_aluno_inep AS inep,
+                aluno.autorizado_um AS autorizado_um,
+                aluno.parentesco_um AS parentesco_um,
+                aluno.autorizado_dois AS autorizado_dois,
+                aluno.parentesco_dois AS parentesco_dois,
+                aluno.autorizado_tres AS autorizado_tres,
+                aluno.parentesco_tres AS parentesco_tres,
+                CONCAT_WS(', ',
+                    NULLIF(addresses.address, ''),
+                    NULLIF(addresses.number, ''),
+                    NULLIF(addresses.neighborhood, ''),
+                    NULLIF(addresses.city, '')
+                )
+                ||
+                CASE
+                    WHEN addresses.state_abbreviation IS NOT NULL
+                        AND addresses.state_abbreviation <> ''
+                    THEN ' - ' || addresses.state_abbreviation
+                    ELSE ''
+                END AS endereco_completo,
                 pessoa.nome AS nome_aluno,
                 to_char(fisica.data_nasc,'dd/mm/yyyy') AS data_nasc,
                 fone_pessoa.fone AS fone,
                 fone_pessoa.ddd AS fone_ddd,
                 concat('(', fone_pessoa.ddd, ')', ' ', to_char(fone_pessoa.fone, '99999-9999'::text)) AS fone_escola,
+                concat('(', fone_aluno.ddd, ')', ' ', to_char(fone_aluno.fone, '99999-9999'::text)) AS fone_aluno,
                 documento.rg AS rg,
                 fisica_foto.caminho AS foto,
                 CASE WHEN fisica_foto.caminho IS NULL THEN 0 ELSE 1 END AS existe_foto,
@@ -67,6 +87,8 @@ class QueryStudentCard extends QueryBridge
             INNER JOIN pmieducar.aluno ON (matricula.ref_cod_aluno = aluno.cod_aluno)
             INNER JOIN cadastro.pessoa ON (pessoa.idpes = aluno.ref_idpes)
             INNER JOIN cadastro.fisica ON (fisica.idpes = aluno.ref_idpes)
+            LEFT JOIN public.person_has_place ON person_has_place.person_id = aluno.ref_idpes
+            LEFT JOIN public.addresses ON addresses.id = person_has_place.place_id
             LEFT JOIN cadastro.fisica_foto ON fisica_foto.idpes = aluno.ref_idpes
             LEFT JOIN cadastro.documento ON (documento.idpes = aluno.ref_idpes)
             LEFT JOIN modules.educacenso_cod_aluno ON (educacenso_cod_aluno.cod_aluno = aluno.cod_aluno)
@@ -80,6 +102,16 @@ class QueryStudentCard extends QueryBridge
                 ORDER BY tipo
                 LIMIT 1
             ) fone_pessoa ON (true)
+            LEFT JOIN LATERAL (
+                SELECT
+                    idpes,
+                    fone,
+                    ddd
+                FROM cadastro.fone_pessoa
+                WHERE fone_pessoa.idpes = aluno.ref_idpes
+                ORDER BY tipo
+                LIMIT 1
+            ) fone_aluno ON (true)
             WHERE true
                 AND instituicao.cod_instituicao = $P{instituicao}
                 AND escola_ano_letivo.ano = $P{ano}
