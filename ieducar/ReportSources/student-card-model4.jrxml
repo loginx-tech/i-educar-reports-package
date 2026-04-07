@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portabilis_carteira_estudante" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="20" uuid="10064c28-4cf5-460c-912c-f9e32f2b649e">
 	<property name="ireport.zoom" value="2.923075650000031"/>
-	<property name="ireport.x" value="789"/>
+	<property name="ireport.x" value="22"/>
 	<property name="ireport.y" value="208"/>
 	<parameter name="ano" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
@@ -322,9 +322,7 @@
 				<textFieldExpression><![CDATA[$P{subtitle}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="59" width="220" height="8">
-					<printWhenExpression><![CDATA[$F{autorizado_um} != null && $F{autorizado_um} != ""]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="59" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -334,21 +332,17 @@
 				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_um}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="69" width="220" height="8">
-					<printWhenExpression><![CDATA[$F{autorizado_um} != null && $F{autorizado_um} != ""]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="69" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
 				<textElement markup="html">
 					<font fontName="DejaVu Sans" size="6" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>Parentesco:</b> " + $F{parentesco_um}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>Parentesco/Telefone:</b> " + $F{parentesco_um}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="79" width="220" height="8">
-					<printWhenExpression><![CDATA[$F{autorizado_dois} != null && $F{autorizado_dois} != ""]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="79" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -358,21 +352,17 @@
 				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_dois}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="89" width="220" height="8">
-					<printWhenExpression><![CDATA[$F{autorizado_dois} != null && $F{autorizado_dois} != ""]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="89" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
 				<textElement markup="html">
 					<font fontName="DejaVu Sans" size="6" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>Parentesco:</b> " + $F{parentesco_dois}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>Parentesco/Telefone:</b> " + $F{parentesco_dois}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="99" width="220" height="8">
-					<printWhenExpression><![CDATA[$F{autorizado_tres} != null && $F{autorizado_tres} != ""]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="99" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -382,16 +372,14 @@
 				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_tres}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="109" width="220" height="8">
-					<printWhenExpression><![CDATA[$F{autorizado_tres} != null && $F{autorizado_tres} != ""]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="109" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
 				<textElement markup="html">
 					<font fontName="DejaVu Sans" size="6" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<b>Parentesco:</b> " + $F{parentesco_tres}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>Parentesco/Telefone:</b> " + $F{parentesco_tres}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="129" width="220" height="30"/>
