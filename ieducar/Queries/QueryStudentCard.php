@@ -26,6 +26,19 @@ class QueryStudentCard extends QueryBridge
                 aluno.parentesco_dois AS parentesco_dois,
                 aluno.autorizado_tres AS autorizado_tres,
                 aluno.parentesco_tres AS parentesco_tres,
+                CASE aluno.tipo_responsavel
+                    WHEN 'm' THEN
+                        mae.nome || coalesce(' (' || coalesce(mae.fone, fone_aluno.fone_formatado) || ')', '')
+                    WHEN 'p' THEN
+                        pai.nome || coalesce(' (' || coalesce(pai.fone, fone_aluno.fone_formatado) || ')', '')
+                    WHEN 'r' THEN
+                        responsavel.nome || coalesce(' (' || coalesce(responsavel.fone, fone_aluno.fone_formatado) || ')', '')
+                    WHEN 'a' THEN NULLIF(concat_ws(' e ',
+                        mae.nome || coalesce(' (' || coalesce(mae.fone, fone_aluno.fone_formatado) || ')', ''),
+                        pai.nome || coalesce(' (' || coalesce(pai.fone, fone_aluno.fone_formatado) || ')', '')
+                    ), '')
+                    ELSE ''
+                END AS responsaveis,
                 CONCAT_WS(', ',
                     NULLIF(addresses.address, ''),
                     NULLIF(addresses.number, ''),
@@ -93,6 +106,33 @@ class QueryStudentCard extends QueryBridge
             LEFT JOIN cadastro.documento ON (documento.idpes = aluno.ref_idpes)
             LEFT JOIN modules.educacenso_cod_aluno ON (educacenso_cod_aluno.cod_aluno = aluno.cod_aluno)
             LEFT JOIN LATERAL (
+                SELECT nome,
+                    CASE WHEN fp.fone IS NOT NULL
+                        THEN concat('(', fp.ddd, ')', ' ', to_char(fp.fone, '99999-9999'::text))
+                    END AS fone
+                FROM cadastro.pessoa p
+                LEFT JOIN cadastro.fone_pessoa fp ON (fp.idpes = p.idpes AND fp.tipo = 2)
+                WHERE p.idpes = fisica.idpes_mae
+            ) mae ON true
+            LEFT JOIN LATERAL (
+                SELECT nome,
+                    CASE WHEN fp.fone IS NOT NULL
+                        THEN concat('(', fp.ddd, ')', ' ', to_char(fp.fone, '99999-9999'::text))
+                    END AS fone
+                FROM cadastro.pessoa p
+                LEFT JOIN cadastro.fone_pessoa fp ON (fp.idpes = p.idpes AND fp.tipo = 2)
+                WHERE p.idpes = fisica.idpes_pai
+            ) pai ON true
+            LEFT JOIN LATERAL (
+                SELECT nome,
+                    CASE WHEN fp.fone IS NOT NULL
+                        THEN concat('(', fp.ddd, ')', ' ', to_char(fp.fone, '99999-9999'::text))
+                    END AS fone
+                FROM cadastro.pessoa p
+                LEFT JOIN cadastro.fone_pessoa fp ON (fp.idpes = p.idpes AND fp.tipo = 2)
+                WHERE p.idpes = fisica.idpes_responsavel
+            ) responsavel ON true
+            LEFT JOIN LATERAL (
                 SELECT
                     idpes,
                     fone,
@@ -106,7 +146,10 @@ class QueryStudentCard extends QueryBridge
                 SELECT
                     idpes,
                     fone,
-                    ddd
+                    ddd,
+                    CASE WHEN fone IS NOT NULL
+                        THEN concat('(', ddd, ')', ' ', to_char(fone, '99999-9999'::text))
+                    END AS fone_formatado
                 FROM cadastro.fone_pessoa
                 WHERE fone_pessoa.idpes = aluno.ref_idpes
                 ORDER BY tipo
