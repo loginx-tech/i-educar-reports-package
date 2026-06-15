@@ -84,6 +84,7 @@
 	<field name="parentesco_tres" class="java.lang.String"/>
 	<field name="fone_aluno" class="java.lang.String"/>
 	<field name="endereco_completo" class="java.lang.String"/>
+	<field name="responsaveis" class="java.lang.String"/>
 	<variable name="tot_alunos" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$F{cod_aluno}]]></variableExpression>
 	</variable>
@@ -174,7 +175,7 @@
 				<imageExpression><![CDATA[$F{foto}]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="adaea771-afc7-4ac3-8be4-db3ad6f0151a" x="30" y="42" width="194" height="8"/>
+				<reportElement uuid="adaea771-afc7-4ac3-8be4-db3ad6f0151a" x="25" y="62" width="194" height="8"/>
 				<textElement markup="none">
 					<font fontName="DejaVu Sans" size="6" isBold="true"/>
 				</textElement>
@@ -322,7 +323,7 @@
 				<textFieldExpression><![CDATA[$P{subtitle}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="59" width="220" height="8"/>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="75" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -332,7 +333,7 @@
 				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_um}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="69" width="220" height="8"/>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="85" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -342,7 +343,7 @@
 				<textFieldExpression><![CDATA["<b>Parentesco/Telefone:</b> " + $F{parentesco_um}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="79" width="220" height="8"/>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="95" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -352,7 +353,7 @@
 				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_dois}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="89" width="220" height="8"/>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="105" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -362,7 +363,7 @@
 				<textFieldExpression><![CDATA["<b>Parentesco/Telefone:</b> " + $F{parentesco_dois}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="99" width="220" height="8"/>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="115" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -372,7 +373,7 @@
 				<textFieldExpression><![CDATA["<b>Nome:</b> " + $F{autorizado_tres}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="109" width="220" height="8"/>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="125" width="220" height="8"/>
 				<box>
 					<bottomPen lineWidth="0.5"/>
 				</box>
@@ -382,7 +383,7 @@
 				<textFieldExpression><![CDATA["<b>Parentesco/Telefone:</b> " + $F{parentesco_tres}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="129" width="220" height="30"/>
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="52" y="138" width="193" height="29"/>
 				<box>
 					<bottomPen lineWidth="0.0"/>
 				</box>
@@ -391,6 +392,20 @@
 				</textElement>
 				<textFieldExpression><![CDATA["<b>Endereço do estudante:</b> " + $F{endereco_completo} + "<br>" +
 "<b>Telefone para contato:</b> " + $F{fone_aluno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="adaea771-afc7-4ac3-8be4-db3ad6f0151a" x="25" y="34" width="194" height="8"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsável(is) pelo aluno]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="46" width="220" height="13"/>
+				<textElement markup="html">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{responsaveis}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
