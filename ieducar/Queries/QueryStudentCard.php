@@ -74,7 +74,8 @@ class QueryStudentCard extends QueryBridge
                     SELECT value
                     FROM settings
                     WHERE key = 'legacy.report.lei_estudante'
-                ) AS lei_estudante
+                ) AS lei_estudante,
+                rota_transporte.descricao AS rota_transporte
             FROM pmieducar.instituicao
             INNER JOIN pmieducar.escola ON (escola.ref_cod_instituicao = instituicao.cod_instituicao)
             INNER JOIN pmieducar.escola_ano_letivo ON (escola_ano_letivo.ref_cod_escola = escola.cod_escola)
@@ -155,6 +156,16 @@ class QueryStudentCard extends QueryBridge
                 ORDER BY tipo
                 LIMIT 1
             ) fone_aluno ON (true)
+            LEFT JOIN LATERAL (
+                SELECT rtx.descricao
+                FROM modules.pessoa_transporte ptx
+                INNER JOIN modules.rota_transporte_escolar rtx
+                    ON rtx.cod_rota_transporte_escolar = ptx.ref_cod_rota_transporte_escolar
+                WHERE ptx.ref_idpes = aluno.ref_idpes
+                  AND rtx.ano = $P{ano}
+                ORDER BY ptx.cod_pessoa_transporte DESC
+                LIMIT 1
+            ) rota_transporte ON (true)
             WHERE true
                 AND instituicao.cod_instituicao = $P{instituicao}
                 AND escola_ano_letivo.ano = $P{ano}

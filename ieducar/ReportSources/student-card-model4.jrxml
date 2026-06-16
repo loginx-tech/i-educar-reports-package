@@ -85,6 +85,7 @@
 	<field name="fone_aluno" class="java.lang.String"/>
 	<field name="endereco_completo" class="java.lang.String"/>
 	<field name="responsaveis" class="java.lang.String"/>
+	<field name="rota_transporte" class="java.lang.String"/>
 	<variable name="tot_alunos" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$F{cod_aluno}]]></variableExpression>
 	</variable>
@@ -320,7 +321,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="6" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{subtitle}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{rota_transporte} != null && !$F{rota_transporte}.isEmpty()) ? $F{rota_transporte} : $P{subtitle}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="be9d3328-6215-44b1-b3a7-9b9db87ae2fb" x="25" y="75" width="220" height="8"/>
