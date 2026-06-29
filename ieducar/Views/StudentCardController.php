@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\LegacyInstitution;
+use Illuminate\Support\Facades\DB;
 
 class StudentCardController extends Portabilis_Controller_ReportCoreController
 {
@@ -58,6 +59,26 @@ class StudentCardController extends Portabilis_Controller_ReportCoreController
             $options = ['label' => 'Modelo', 'resources' => $resources, 'value' => 1];
             $this->inputsHelper()->select('modelo', $options);
         }
+
+        $ano = (isset($this->ano) && is_numeric($this->ano)) ? (int) $this->ano : (int) date('Y');
+
+        $rotas = DB::table('modules.rota_transporte_escolar')
+            ->select('cod_rota_transporte_escolar', 'descricao')
+            ->where('ano', $ano)
+            ->orderBy('descricao')
+            ->get();
+
+        $resources = ['' => 'Selecione'];
+
+        foreach ($rotas as $rota) {
+            $resources[$rota->cod_rota_transporte_escolar] = $rota->descricao;
+        }
+
+        $this->inputsHelper()->select('rota_transporte', [
+            'label' => 'Rota de transporte',
+            'resources' => $resources,
+            'required' => false,
+        ]);
 
         $this->inputsHelper()->text('validade', [
             'required' => false,
@@ -142,10 +163,12 @@ class StudentCardController extends Portabilis_Controller_ReportCoreController
             $this->report->addArg('imprimir_serie', $this->getRequest()->imprimir_serie ? 1 : 0);
         }
 
-
         if ($this->getRequest()->modelo == 4) {
             $this->report->addArg('img_frente', config('legacy.report.carteira_estudante_frente') ?: '');
             $this->report->addArg('img_verso', config('legacy.report.carteira_estudante_verso') ?: '');
+            $this->report->addArg('rota_transporte', (int) $this->getRequest()->rota_transporte);
+        } else {
+            $this->report->addArg('rota_transporte', 0);
         }
     }
 }

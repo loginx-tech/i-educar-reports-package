@@ -24,6 +24,9 @@
     <parameter name="matricula" class="java.lang.Integer">
         <defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
     </parameter>
+    <parameter name="rota_transporte" class="java.lang.Integer">
+        <defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
+    </parameter>
     <parameter name="logo" class="java.lang.String"/>
     <parameter name="validade" class="java.lang.String">
         <defaultValueExpression><![CDATA[""]]></defaultValueExpression>
