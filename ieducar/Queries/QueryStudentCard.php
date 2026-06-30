@@ -174,6 +174,15 @@ class QueryStudentCard extends QueryBridge
                 AND serie.cod_serie = $P{serie}
                 AND turma.cod_turma = $P{turma}
                 AND ($P{matricula} = 0 OR matricula.cod_matricula = $P{matricula})
+                AND ($P{rota_transporte} = 0 OR EXISTS (
+                    SELECT 1
+                    FROM modules.pessoa_transporte pt
+                    INNER JOIN modules.rota_transporte_escolar rt
+                        ON rt.cod_rota_transporte_escolar = pt.ref_cod_rota_transporte_escolar
+                    WHERE pt.ref_idpes = aluno.ref_idpes
+                      AND rt.ano = $P{ano}
+                      AND pt.ref_cod_rota_transporte_escolar = $P{rota_transporte}
+                ))
                 AND (CASE WHEN $P{situacao_matricula} = 16 THEN EXISTS (
                     SELECT 1
                     FROM modules.nota_componente_curricular_media nccm
