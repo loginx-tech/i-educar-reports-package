@@ -27,6 +27,7 @@ class StudentCardReport extends Portabilis_Report_ReportCore
         $this->addRequiredArg('ano');
         $this->addRequiredArg('instituicao');
         $this->addRequiredArg('escola');
+        $this->addRequiredArg('curso');
         $this->addRequiredArg('modelo');
     }
 
