@@ -82,7 +82,8 @@ class QueryStudentCard extends QueryBridge
             INNER JOIN pmieducar.escola_curso ON (escola_curso.ref_cod_escola = escola.cod_escola AND escola_curso.ativo = 1)
             INNER JOIN pmieducar.escola_serie ON (escola_serie.ref_cod_escola = escola.cod_escola AND escola_serie.ativo = 1)
             INNER JOIN pmieducar.curso ON (curso.cod_curso = escola_curso.ref_cod_curso AND curso.ativo = 1)
-            INNER JOIN pmieducar.serie ON (serie.cod_serie = escola_serie.ref_cod_serie AND serie.ativo = 1)
+            INNER JOIN pmieducar.serie ON (serie.cod_serie = escola_serie.ref_cod_serie AND serie.ativo = 1
+                AND serie.ref_cod_curso = curso.cod_curso)
             INNER JOIN pmieducar.turma ON (turma.ref_ref_cod_escola = escola.cod_escola
                 AND turma.ref_cod_curso = curso.cod_curso
                 AND turma.ano = escola_ano_letivo.ano
@@ -95,9 +96,14 @@ class QueryStudentCard extends QueryBridge
                 AND matricula.ref_ref_cod_serie = serie.cod_serie
                 AND matricula.ano = escola_ano_letivo.ano)
 
-            INNER JOIN relatorio.view_situacao ON (view_situacao.cod_matricula = matricula.cod_matricula
-                AND view_situacao.cod_turma = turma.cod_turma
-                AND view_situacao.sequencial = matricula_turma.sequencial)
+            INNER JOIN LATERAL (
+                SELECT vs.cod_situacao, vs.sequencial
+                FROM relatorio.view_situacao vs
+                WHERE vs.cod_matricula = matricula.cod_matricula
+                    AND vs.cod_turma = turma.cod_turma
+                    AND vs.sequencial = matricula_turma.sequencial
+                OFFSET 0
+            ) view_situacao ON true
             INNER JOIN pmieducar.aluno ON (matricula.ref_cod_aluno = aluno.cod_aluno)
             INNER JOIN cadastro.pessoa ON (pessoa.idpes = aluno.ref_idpes)
             INNER JOIN cadastro.fisica ON (fisica.idpes = aluno.ref_idpes)
@@ -170,9 +176,9 @@ class QueryStudentCard extends QueryBridge
                 AND instituicao.cod_instituicao = $P{instituicao}
                 AND escola_ano_letivo.ano = $P{ano}
                 AND escola.cod_escola = $P{escola}
-                AND curso.cod_curso = $P{curso}
-                AND serie.cod_serie = $P{serie}
-                AND turma.cod_turma = $P{turma}
+                AND (CASE WHEN $P{curso} = 0 THEN true ELSE curso.cod_curso = $P{curso} END)
+                AND (CASE WHEN $P{serie} = 0 THEN true ELSE serie.cod_serie = $P{serie} END)
+                AND (CASE WHEN $P{turma} = 0 THEN true ELSE turma.cod_turma = $P{turma} END)
                 AND ($P{matricula} = 0 OR matricula.cod_matricula = $P{matricula})
                 AND ($P{rota_transporte} = 0 OR EXISTS (
                     SELECT 1
