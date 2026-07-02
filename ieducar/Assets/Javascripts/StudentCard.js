@@ -14,13 +14,11 @@ function onModeloClick(){
   if($j('#modelo').val() == 4){
     $j('#rota_transporte').closest('tr').show();
     $j('#rota_transporte').makeRequired();
-    $j('#ref_cod_curso').makeUnrequired();
     $j('#ref_cod_serie').makeUnrequired();
     $j('#ref_cod_turma').makeUnrequired();
   }else{
     $j('#rota_transporte').closest('tr').hide();
     $j('#rota_transporte').makeUnrequired();
-    $j('#ref_cod_curso').makeRequired();
     $j('#ref_cod_serie').makeRequired();
     $j('#ref_cod_turma').makeRequired();
   }
